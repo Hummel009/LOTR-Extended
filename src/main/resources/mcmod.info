@@ -1,0 +1,16 @@
+[
+{
+	"modid" : "lotre",
+	"name" : "LOTR Extended",
+	"version" : "Version 3.0",
+	"credits" : "Hummel009",
+	"authorList": ["Hummel009"],
+	"description": "See ingame mod list!",
+	"logoFile" : "assets/lotr/logo.png",
+	"url" : "",
+	"updateUrl" : "",
+	"parent" : "",
+	"dependencies": [],
+	"screenshots": []
+}
+]
