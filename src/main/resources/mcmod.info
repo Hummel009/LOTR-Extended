@@ -1,16 +1,18 @@
 [
-{
-	"modid" : "lotre",
-	"name" : "LOTR Extended",
-	"version" : "3.0",
-	"credits" : "Hummel009",
-	"authorList": ["Hummel009"],
-	"description": "See ingame mod list!",
-	"logoFile" : "assets/lotr/logo.png",
-	"url" : "",
-	"updateUrl" : "",
-	"parent" : "",
-	"dependencies": [],
-	"screenshots": []
-}
+  {
+    "modid": "lotre",
+    "name": "LOTR Extended",
+    "version": "3.0",
+    "credits": "Hummel009",
+    "authorList": [
+      "Hummel009"
+    ],
+    "description": "See ingame mod list!",
+    "logoFile": "assets/lotr/logo.png",
+    "url": "",
+    "updateUrl": "",
+    "parent": "",
+    "dependencies": [],
+    "screenshots": []
+  }
 ]

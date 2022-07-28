@@ -11,11 +11,9 @@ import lotr.common.world.spawning.LOTRBiomeSpawnList;
 import lotre.map.LOTREWaypoint;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-import net.minecraft.world.gen.NoiseGeneratorPerlin;
 import net.minecraft.world.gen.feature.*;
 
 public class LOTREBiomeGenDarkLandSavannah extends LOTRBiomeGenFarHarad {
-	private static NoiseGeneratorPerlin populatedNoise = new NoiseGeneratorPerlin(new Random(100L), 1);
 	protected LOTRBiomeSpawnList populatedSpawnList = new LOTRBiomeSpawnList(this);
 	private WorldGenerator boulderGen = new LOTRWorldGenBoulder(Blocks.stone, 0, 1, 3);
 

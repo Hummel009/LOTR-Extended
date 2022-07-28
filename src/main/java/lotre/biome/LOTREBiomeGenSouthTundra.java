@@ -63,13 +63,6 @@ public class LOTREBiomeGenSouthTundra extends LOTRBiome {
 		decorator.addRandomStructure(new LOTRWorldGenSmallStoneRuin(false), 500);
 	}
 
-	public static boolean isTundraSnowy(int i, int k) {
-		double d1 = noiseSnow.func_151601_a(i * 0.002, k * 0.002);
-		double d2 = noiseSnow.func_151601_a(i * 0.05, k * 0.05);
-		double d3 = noiseSnow.func_151601_a(i * 0.3, k * 0.3);
-		return d1 + (d2 *= 0.3) + (d3 *= 0.3) > 0.8;
-	}
-
 	@Override
 	public void decorate(World world, Random random, int i, int k) {
 		super.decorate(world, random, i, k);
@@ -171,5 +164,12 @@ public class LOTREBiomeGenSouthTundra extends LOTRBiome {
 	@Override
 	public float getTreeIncreaseChance() {
 		return 0.04f;
+	}
+
+	public static boolean isTundraSnowy(int i, int k) {
+		double d1 = noiseSnow.func_151601_a(i * 0.002, k * 0.002);
+		double d2 = noiseSnow.func_151601_a(i * 0.05, k * 0.05);
+		double d3 = noiseSnow.func_151601_a(i * 0.3, k * 0.3);
+		return d1 + (d2 *= 0.3) + (d3 *= 0.3) > 0.8;
 	}
 }

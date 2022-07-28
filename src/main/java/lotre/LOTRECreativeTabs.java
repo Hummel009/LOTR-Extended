@@ -1,7 +1,7 @@
 package lotre;
 
 import cpw.mods.fml.relauncher.ReflectionHelper;
-import lotr.common.*;
+import lotr.common.LOTRCreativeTabs;
 
 public class LOTRECreativeTabs {
 	public static LOTRCreativeTabs tabBlocks;

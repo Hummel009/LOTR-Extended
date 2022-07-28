@@ -30,15 +30,6 @@ public class LOTRECommander {
 		}
 	}
 
-	private static <E> Constructor<E> findConstructor(Class<E> clazz, Class<?>... parameterTypes) {
-		try {
-			return clazz.getDeclaredConstructor(parameterTypes);
-		} catch (NoSuchMethodException | SecurityException e) {
-			e.printStackTrace();
-			return null;
-		}
-	}
-
 	private static ModContainer getContainer(ResourceLocation res) {
 		ModContainer modContainer = Loader.instance().getIndexedModList().get(res.getResourceDomain());
 		if (modContainer == null) {
