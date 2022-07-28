@@ -11,7 +11,7 @@ import lotre.proxy.LOTREServerProxy;
 import net.minecraft.block.Block;
 import net.minecraft.util.ResourceLocation;
 
-@Mod(modid = "lotre", version="3.0", dependencies = "required-after:lotr")
+@Mod(modid = "lotre", dependencies = "required-after:lotr")
 public class LOTRExtended {
 	@SidedProxy(clientSide = "lotre.proxy.LOTREClientProxy", serverSide = "lotre.proxy.LOTREServerProxy")
 	public static LOTREServerProxy proxy;
