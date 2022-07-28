@@ -1,18 +1,12 @@
 [
-  {
-    "modid": "lotre",
-    "name": "LOTR Extended",
-    "version": "3.0",
-    "credits": "Hummel009",
-    "authorList": [
-      "Hummel009"
-    ],
-    "description": "This mod adds Dark Land and The Lands of the Sun from the Lord of the Rings to Minecraft",
-    "logoFile": "assets/lotr/logo.png",
-    "url": "",
-    "updateUrl": "",
-    "parent": "",
-    "dependencies": [],
-    "screenshots": []
-  }
+	{
+		"authorList": "Hummel009",
+		"credits": "Hummel009",
+		"description": "This mod adds Dark Land and The Lands of the Sun from the Lord of the Rings to Minecraft",
+		"logoFile": "assets/lotr/logo.png",
+		"modid": "lotre",
+		"name": "LOTR Extended",
+		"url": "https://github.com/Hummel009",
+		"version": "3.0"
+	}
 ]
