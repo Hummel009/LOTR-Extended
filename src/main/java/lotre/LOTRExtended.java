@@ -11,11 +11,8 @@ import lotre.proxy.LOTREServerProxy;
 import net.minecraft.block.Block;
 import net.minecraft.util.ResourceLocation;
 
-@Mod(modid = "lotre", version = LOTRExtended.UPDATE, name = LOTRExtended.NAME, dependencies = "required-after:lotr")
-
+@Mod(modid = "lotre", version="3.0", dependencies = "required-after:lotr")
 public class LOTRExtended {
-	public static final String UPDATE = "Version 3.0";
-	public static final String NAME = "LOTR Extended";
 	@SidedProxy(clientSide = "lotre.proxy.LOTREClientProxy", serverSide = "lotre.proxy.LOTREServerProxy")
 	public static LOTREServerProxy proxy;
 	public static Block rock;
