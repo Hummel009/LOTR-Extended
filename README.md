@@ -1,4 +1,5 @@
-Hello everybody!
+Аддон к моду "Властелин колец" для Minecraft 1.7.10. Добавляет два новых континента - Тёмные земли и Землю Солнца, биомы в них, а также несколько путевых точек.
 
-I am the developer of different mods for Minecraft, including this one, and I have posted the latest source code here. I
-hope, that somebody can find this useful as a basis for your own mods.
+https://lotrminecraftmod.fandom.com/ru/wiki/LOTR_Extended - статья, в которой подробно описан мод.
+
+Если скачать репозиторий и положить его по пути D:/Eclipse/Minecraft/LOTR-Extended, то, по идее, его потом можно спокойно импортировать в Eclipse или открыть через IntelliJ IDEA. Подразумевается, что на компьютере как минимум 1 раз выполнялась команда "gradlew setupDecompWorkspace eclipse".
