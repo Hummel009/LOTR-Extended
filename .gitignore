@@ -6,8 +6,11 @@
 .idea/vcs.xml
 bin
 build
+libs/LOTR_UpdatedLangFiles/*.lang
+libs/LOTR_UpdatedLangFiles/readme.txt
 run
 server/config
+server/crash-reports
 server/logs
 server/mods/*.jar
 server/world
