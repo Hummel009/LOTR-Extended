@@ -1,32 +1,38 @@
 package lotre.biome;
 
-import java.awt.Color;
-import java.util.Random;
-
-import cpw.mods.fml.relauncher.*;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import lotr.common.LOTRMod;
-import lotr.common.entity.animal.*;
-import lotr.common.world.biome.*;
+import lotr.common.entity.animal.LOTREntityBear;
+import lotr.common.entity.animal.LOTREntityDeer;
+import lotr.common.entity.animal.LOTREntityElk;
+import lotr.common.world.biome.LOTRBiome;
+import lotr.common.world.biome.LOTRMusicRegion;
 import lotr.common.world.biome.variant.LOTRBiomeVariant;
-import lotr.common.world.feature.*;
+import lotr.common.world.feature.LOTRTreeType;
+import lotr.common.world.feature.LOTRWorldGenBoulder;
 import lotr.common.world.map.LOTRWaypoint;
-import lotr.common.world.structure2.*;
+import lotr.common.world.structure2.LOTRWorldGenRuinedHouse;
+import lotr.common.world.structure2.LOTRWorldGenSmallStoneRuin;
 import lotre.map.LOTREWaypoint;
 import net.minecraft.block.Block;
 import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.MathHelper;
-import net.minecraft.world.*;
+import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.NoiseGeneratorPerlin;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.util.ForgeDirection;
 
+import java.awt.*;
+import java.util.Random;
+
 public class LOTREBiomeGenSouthTundra extends LOTRBiome {
-	protected static NoiseGeneratorPerlin noiseDirt = new NoiseGeneratorPerlin(new Random(47684796930956L), 1);
-	protected static NoiseGeneratorPerlin noiseStone = new NoiseGeneratorPerlin(new Random(8894086030764L), 1);
-	protected static NoiseGeneratorPerlin noiseSnow = new NoiseGeneratorPerlin(new Random(2490309256000602L), 1);
+	public static NoiseGeneratorPerlin noiseDirt = new NoiseGeneratorPerlin(new Random(47684796930956L), 1);
+	public static NoiseGeneratorPerlin noiseStone = new NoiseGeneratorPerlin(new Random(8894086030764L), 1);
+	public static NoiseGeneratorPerlin noiseSnow = new NoiseGeneratorPerlin(new Random(2490309256000602L), 1);
 	private WorldGenerator boulderGen = new LOTRWorldGenBoulder(Blocks.stone, 0, 1, 3);
 
 	public LOTREBiomeGenSouthTundra(int i, boolean major) {
@@ -40,13 +46,13 @@ public class LOTREBiomeGenSouthTundra extends LOTRBiome {
 		spawnableLOTRAmbientList.clear();
 		npcSpawnList.clear();
 		variantChance = 0.2f;
-		this.addBiomeVariant(LOTRBiomeVariant.FOREST_LIGHT);
-		this.addBiomeVariant(LOTRBiomeVariant.STEPPE);
-		this.addBiomeVariant(LOTRBiomeVariant.STEPPE_BARREN);
-		this.addBiomeVariant(LOTRBiomeVariant.HILLS);
-		this.addBiomeVariant(LOTRBiomeVariant.DEADFOREST_OAK);
-		this.addBiomeVariant(LOTRBiomeVariant.DEADFOREST_SPRUCE);
-		this.addBiomeVariant(LOTRBiomeVariant.DEADFOREST_OAK_SPRUCE);
+		addBiomeVariant(LOTRBiomeVariant.FOREST_LIGHT);
+		addBiomeVariant(LOTRBiomeVariant.STEPPE);
+		addBiomeVariant(LOTRBiomeVariant.STEPPE_BARREN);
+		addBiomeVariant(LOTRBiomeVariant.HILLS);
+		addBiomeVariant(LOTRBiomeVariant.DEADFOREST_OAK);
+		addBiomeVariant(LOTRBiomeVariant.DEADFOREST_SPRUCE);
+		addBiomeVariant(LOTRBiomeVariant.DEADFOREST_OAK_SPRUCE);
 		decorator.treesPerChunk = 0;
 		decorator.flowersPerChunk = 2;
 		decorator.grassPerChunk = 4;
@@ -63,6 +69,13 @@ public class LOTREBiomeGenSouthTundra extends LOTRBiome {
 		decorator.addRandomStructure(new LOTRWorldGenSmallStoneRuin(false), 500);
 	}
 
+	public static boolean isTundraSnowy(int i, int k) {
+		double d1 = noiseSnow.func_151601_a(i * 0.002, k * 0.002);
+		double d2 = noiseSnow.func_151601_a(i * 0.05, k * 0.05);
+		double d3 = noiseSnow.func_151601_a(i * 0.3, k * 0.3);
+		return d1 + d2 * 0.3 + d3 * 0.3 > 0.8;
+	}
+
 	@Override
 	public void decorate(World world, Random random, int i, int k) {
 		super.decorate(world, random, i, k);
@@ -77,7 +90,7 @@ public class LOTREBiomeGenSouthTundra extends LOTRBiome {
 				int j2 = j1 + MathHelper.getRandomIntegerInRange(random, -1, 1);
 				Block below = world.getBlock(i2, j2 - 1, k2);
 				Block block = world.getBlock(i2, j2, k2);
-				if (!below.canSustainPlant((IBlockAccess) world, i2, j2 - 1, k2, ForgeDirection.UP, (IPlantable) Blocks.sapling) || block.getMaterial().isLiquid() || !block.isReplaceable(world, i2, j2, k2)) {
+				if (!below.canSustainPlant(world, i2, j2 - 1, k2, ForgeDirection.UP, (IPlantable) Blocks.sapling) || block.getMaterial().isLiquid() || !block.isReplaceable(world, i2, j2, k2)) {
 					continue;
 				}
 				Block leafBlock = Blocks.leaves;
@@ -127,14 +140,14 @@ public class LOTREBiomeGenSouthTundra extends LOTRBiome {
 		fillerBlockMeta = fillerBlockMeta_pre;
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	@Override
 	public int getBiomeGrassColor(int i, int j, int k) {
 		int color1 = 10708034;
 		int color2 = 13747522;
 		double d1 = biomeTerrainNoise.func_151601_a(i * 0.002, k * 0.002);
 		double d2 = biomeTerrainNoise.func_151601_a(i * 0.04, k * 0.04);
-		float noise = (float) MathHelper.clamp_double(d1 + (d2 *= 0.4), -2.0, 2.0);
+		float noise = (float) MathHelper.clamp_double(d1 + d2 * 0.4, -2.0, 2.0);
 		noise += 2.0f;
 		noise /= 4.0f;
 		float[] rgb1 = new Color(color1).getColorComponents(null);
@@ -153,7 +166,7 @@ public class LOTREBiomeGenSouthTundra extends LOTRBiome {
 
 	@Override
 	public LOTRWaypoint.Region getBiomeWaypoints() {
-		return LOTREWaypoint.Region.Darkland;
+		return LOTREWaypoint.Region.darkLand;
 	}
 
 	@Override
@@ -164,12 +177,5 @@ public class LOTREBiomeGenSouthTundra extends LOTRBiome {
 	@Override
 	public float getTreeIncreaseChance() {
 		return 0.04f;
-	}
-
-	public static boolean isTundraSnowy(int i, int k) {
-		double d1 = noiseSnow.func_151601_a(i * 0.002, k * 0.002);
-		double d2 = noiseSnow.func_151601_a(i * 0.05, k * 0.05);
-		double d3 = noiseSnow.func_151601_a(i * 0.3, k * 0.3);
-		return d1 + (d2 *= 0.3) + (d3 *= 0.3) > 0.8;
 	}
 }

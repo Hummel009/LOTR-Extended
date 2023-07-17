@@ -1,8 +1,10 @@
 package lotre;
 
-import cpw.mods.fml.common.*;
+import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
-import cpw.mods.fml.common.event.*;
+import cpw.mods.fml.common.SidedProxy;
+import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 import lotre.biome.LOTREBiome;
 import lotre.block.LOTREBlockRock;
@@ -16,6 +18,12 @@ public class LOTRExtended {
 	@SidedProxy(clientSide = "lotre.proxy.LOTREClientProxy", serverSide = "lotre.proxy.LOTREServerProxy")
 	public static LOTREServerProxy proxy;
 	public static Block rock;
+
+	public static void register(Block block, String codename) {
+		block.setBlockName("lotre:" + codename);
+		block.setBlockTextureName("lotre:" + codename);
+		GameRegistry.registerBlock(block, "tile." + codename);
+	}
 
 	@EventHandler
 	public void onInit(FMLInitializationEvent event) {
@@ -31,11 +39,5 @@ public class LOTRExtended {
 		proxy.preInit();
 		rock = new LOTREBlockRock();
 		register(rock, "rock_yellow");
-	}
-
-	public static void register(Block block, String codename) {
-		block.setBlockName("lotre:" + codename);
-		block.setBlockTextureName("lotre:" + codename);
-		GameRegistry.registerBlock(block, "tile." + codename);
 	}
 }

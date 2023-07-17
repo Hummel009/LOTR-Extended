@@ -2,8 +2,6 @@ package lotre.biome;
 
 import lotr.common.world.biome.variant.LOTRBiomeVariant;
 import lotr.common.world.feature.LOTRTreeType;
-import lotr.common.world.map.LOTRWaypoint;
-import lotre.map.LOTREWaypoint;
 
 public class LOTREBiomeGenSouthTaiga extends LOTREBiomeGenSouthTundra {
 	public LOTREBiomeGenSouthTaiga(int i, boolean major) {
@@ -11,10 +9,10 @@ public class LOTREBiomeGenSouthTaiga extends LOTREBiomeGenSouthTundra {
 		clearBiomeVariants();
 		variantChance = 0.75f;
 		addBiomeVariantSet(LOTRBiomeVariant.SET_FOREST);
-		this.addBiomeVariant(LOTRBiomeVariant.FOREST);
-		this.addBiomeVariant(LOTRBiomeVariant.FOREST_LIGHT);
-		this.addBiomeVariant(LOTRBiomeVariant.DEADFOREST_SPRUCE);
-		this.addBiomeVariant(LOTRBiomeVariant.FOREST_PINE);
+		addBiomeVariant(LOTRBiomeVariant.FOREST);
+		addBiomeVariant(LOTRBiomeVariant.FOREST_LIGHT);
+		addBiomeVariant(LOTRBiomeVariant.DEADFOREST_SPRUCE);
+		addBiomeVariant(LOTRBiomeVariant.FOREST_PINE);
 		decorator.treesPerChunk = 2;
 		decorator.flowersPerChunk = 2;
 		decorator.grassPerChunk = 8;
@@ -26,11 +24,6 @@ public class LOTREBiomeGenSouthTaiga extends LOTREBiomeGenSouthTundra {
 		decorator.addTree(LOTRTreeType.FIR, 200);
 		decorator.addTree(LOTRTreeType.PINE, 200);
 		registerTaigaFlowers();
-	}
-
-	@Override
-	public LOTRWaypoint.Region getBiomeWaypoints() {
-		return LOTREWaypoint.Region.Darkland;
 	}
 
 	@Override

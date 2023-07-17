@@ -1,23 +1,27 @@
 package lotre;
 
-import java.awt.image.BufferedImage;
-import java.io.*;
-import java.lang.reflect.*;
-
-import javax.imageio.ImageIO;
-
-import cpw.mods.fml.common.*;
-import cpw.mods.fml.relauncher.*;
+import cpw.mods.fml.common.FMLLog;
+import cpw.mods.fml.common.Loader;
+import cpw.mods.fml.common.ModContainer;
+import cpw.mods.fml.relauncher.ReflectionHelper;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import lotr.client.LOTRTextures;
 import lotr.common.LOTRDimension;
 import lotr.common.world.genlayer.LOTRGenLayerWorld;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.ResourceLocation;
 
-public class LOTRECommander {
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.io.InputStream;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 
+public class LOTRECommander {
 	private static <T, E> T findAndInvokeMethod(Object[] arg, Class<? super E> clazz, E instance, String methodName, Class<?>... methodTypes) {
-		return LOTRECommander.findAndInvokeMethod(arg, clazz, instance, new String[] { methodName }, methodTypes);
+		return findAndInvokeMethod(arg, clazz, instance, new String[]{methodName}, methodTypes);
 	}
 
 	private static <T, E> T findAndInvokeMethod(Object[] args, Class<? super E> clazz, E instance, String[] methodNames, Class<?>... methodTypes) {
@@ -46,7 +50,7 @@ public class LOTRECommander {
 		} finally {
 			try {
 				in.close();
-			} catch (IOException e) {
+			} catch (IOException ignored) {
 			}
 		}
 		return null;
@@ -57,20 +61,20 @@ public class LOTRECommander {
 	}
 
 	private static InputStream getInputStream(ResourceLocation res) {
-		return LOTRECommander.getInputStream(LOTRECommander.getContainer(res), LOTRECommander.getPath(res));
+		return getInputStream(getContainer(res), getPath(res));
 	}
 
 	private static String getPath(ResourceLocation res) {
 		return "/assets/" + res.getResourceDomain() + "/" + res.getResourcePath();
 	}
 
-	@SideOnly(value = Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 	public static void setClientMapImage(ResourceLocation res) {
 		ResourceLocation sepiaMapTexture;
 		ReflectionHelper.setPrivateValue(LOTRTextures.class, null, res, "mapTexture");
 		try {
-			BufferedImage mapImage = LOTRECommander.getImage(Minecraft.getMinecraft().getResourceManager().getResource(res).getInputStream());
-			sepiaMapTexture = LOTRECommander.findAndInvokeMethod(new Object[] { mapImage, new ResourceLocation("lotr:map_sepia") }, LOTRTextures.class, null, "convertToSepia", BufferedImage.class, ResourceLocation.class);
+			BufferedImage mapImage = getImage(Minecraft.getMinecraft().getResourceManager().getResource(res).getInputStream());
+			sepiaMapTexture = findAndInvokeMethod(new Object[]{mapImage, new ResourceLocation("lotr:map_sepia")}, LOTRTextures.class, null, "convertToSepia", BufferedImage.class, ResourceLocation.class);
 		} catch (IOException e) {
 			FMLLog.severe("Failed to generate GOT sepia map");
 			e.printStackTrace();
@@ -80,7 +84,7 @@ public class LOTRECommander {
 	}
 
 	public static void setServerMapImage(ResourceLocation res) {
-		BufferedImage img = LOTRECommander.getImage(LOTRECommander.getInputStream(res));
+		BufferedImage img = getImage(getInputStream(res));
 		LOTRGenLayerWorld.imageWidth = img.getWidth();
 		LOTRGenLayerWorld.imageHeight = img.getHeight();
 		int[] colors = img.getRGB(0, 0, LOTRGenLayerWorld.imageWidth, LOTRGenLayerWorld.imageHeight, null, 0, LOTRGenLayerWorld.imageWidth);
@@ -90,7 +94,6 @@ public class LOTRECommander {
 			Integer biomeID = LOTRDimension.MIDDLE_EARTH.colorsToBiomeIDs.get(color);
 			if (biomeID != null) {
 				biomeImageData[i] = (byte) biomeID.intValue();
-				continue;
 			}
 		}
 		ReflectionHelper.setPrivateValue(LOTRGenLayerWorld.class, null, biomeImageData, "biomeImageData");

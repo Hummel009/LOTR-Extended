@@ -1,20 +1,24 @@
 package lotre.biome;
 
-import java.util.Random;
-
 import lotr.common.LOTRMod;
-import lotr.common.world.biome.*;
+import lotr.common.world.biome.LOTRBiomeGenFarHarad;
+import lotr.common.world.biome.LOTRMusicRegion;
 import lotr.common.world.biome.variant.LOTRBiomeVariant;
-import lotr.common.world.feature.*;
+import lotr.common.world.feature.LOTRWorldGenBoulder;
+import lotr.common.world.feature.LOTRWorldGenYams;
 import lotr.common.world.map.LOTRWaypoint;
 import lotr.common.world.spawning.LOTRBiomeSpawnList;
 import lotre.map.LOTREWaypoint;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-import net.minecraft.world.gen.feature.*;
+import net.minecraft.world.gen.feature.WorldGenDoublePlant;
+import net.minecraft.world.gen.feature.WorldGenMinable;
+import net.minecraft.world.gen.feature.WorldGenerator;
+
+import java.util.Random;
 
 public class LOTREBiomeGenDarkLandSavannah extends LOTRBiomeGenFarHarad {
-	protected LOTRBiomeSpawnList populatedSpawnList = new LOTRBiomeSpawnList(this);
+	private LOTRBiomeSpawnList populatedSpawnList = new LOTRBiomeSpawnList(this);
 	private WorldGenerator boulderGen = new LOTRWorldGenBoulder(Blocks.stone, 0, 1, 3);
 
 	public LOTREBiomeGenDarkLandSavannah(int i, boolean major) {
@@ -22,18 +26,18 @@ public class LOTREBiomeGenDarkLandSavannah extends LOTRBiomeGenFarHarad {
 		npcSpawnList.clear();
 
 		variantChance = 0.3f;
-		this.addBiomeVariant(LOTRBiomeVariant.FLOWERS);
-		this.addBiomeVariant(LOTRBiomeVariant.FOREST);
-		this.addBiomeVariant(LOTRBiomeVariant.FOREST_LIGHT);
-		this.addBiomeVariant(LOTRBiomeVariant.STEPPE);
-		this.addBiomeVariant(LOTRBiomeVariant.STEPPE_BARREN);
-		this.addBiomeVariant(LOTRBiomeVariant.HILLS);
-		this.addBiomeVariant(LOTRBiomeVariant.HILLS_FOREST);
-		this.addBiomeVariant(LOTRBiomeVariant.SHRUBLAND_OAK);
-		this.addBiomeVariant(LOTRBiomeVariant.SAVANNAH_BAOBAB, 3.0f);
-		this.addBiomeVariant(LOTRBiomeVariant.SCRUBLAND, 2.0f);
-		this.addBiomeVariant(LOTRBiomeVariant.HILLS_SCRUBLAND);
-		this.addBiomeVariant(LOTRBiomeVariant.WASTELAND);
+		addBiomeVariant(LOTRBiomeVariant.FLOWERS);
+		addBiomeVariant(LOTRBiomeVariant.FOREST);
+		addBiomeVariant(LOTRBiomeVariant.FOREST_LIGHT);
+		addBiomeVariant(LOTRBiomeVariant.STEPPE);
+		addBiomeVariant(LOTRBiomeVariant.STEPPE_BARREN);
+		addBiomeVariant(LOTRBiomeVariant.HILLS);
+		addBiomeVariant(LOTRBiomeVariant.HILLS_FOREST);
+		addBiomeVariant(LOTRBiomeVariant.SHRUBLAND_OAK);
+		addBiomeVariant(LOTRBiomeVariant.SAVANNAH_BAOBAB, 3.0f);
+		addBiomeVariant(LOTRBiomeVariant.SCRUBLAND, 2.0f);
+		addBiomeVariant(LOTRBiomeVariant.HILLS_SCRUBLAND);
+		addBiomeVariant(LOTRBiomeVariant.WASTELAND);
 		decorator.addSoil(new WorldGenMinable(LOTRMod.redClay, 32, Blocks.dirt), 40.0f, 0, 80);
 		decorator.setTreeCluster(3, 60);
 		decorator.clayPerChunk = 4;
@@ -70,7 +74,7 @@ public class LOTREBiomeGenDarkLandSavannah extends LOTRBiomeGenFarHarad {
 
 	@Override
 	public LOTRWaypoint.Region getBiomeWaypoints() {
-		return LOTREWaypoint.Region.Darkland;
+		return LOTREWaypoint.Region.darkLand;
 	}
 
 	@Override

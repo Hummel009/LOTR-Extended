@@ -1,10 +1,10 @@
 package lotre.biome;
 
-import java.util.Random;
-
 import lotr.common.LOTRMod;
-import lotr.common.entity.npc.*;
-import lotr.common.world.biome.*;
+import lotr.common.entity.npc.LOTREntityIronHillsMerchant;
+import lotr.common.entity.npc.LOTREntityScrapTrader;
+import lotr.common.world.biome.LOTRBiome;
+import lotr.common.world.biome.LOTRMusicRegion;
 import lotr.common.world.biome.variant.LOTRBiomeVariant;
 import lotr.common.world.feature.LOTRTreeType;
 import lotr.common.world.map.LOTRWaypoint;
@@ -16,16 +16,18 @@ import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 
+import java.util.Random;
+
 public class LOTREBiomeGenYellowMountains extends LOTRBiome {
 	public LOTREBiomeGenYellowMountains(int i, boolean major) {
 		super(i, major);
 		npcSpawnList.clear();
 		addBiomeVariantSet(LOTRBiomeVariant.SET_MOUNTAINS);
-		this.addBiomeVariant(LOTRBiomeVariant.FOREST_BEECH, 0.2f);
-		this.addBiomeVariant(LOTRBiomeVariant.FOREST_BIRCH, 0.2f);
-		this.addBiomeVariant(LOTRBiomeVariant.FOREST_LARCH, 0.2f);
-		this.addBiomeVariant(LOTRBiomeVariant.FOREST_PINE, 0.2f);
-		this.addBiomeVariant(LOTRBiomeVariant.FOREST_MAPLE, 0.2f);
+		addBiomeVariant(LOTRBiomeVariant.FOREST_BEECH, 0.2f);
+		addBiomeVariant(LOTRBiomeVariant.FOREST_BIRCH, 0.2f);
+		addBiomeVariant(LOTRBiomeVariant.FOREST_LARCH, 0.2f);
+		addBiomeVariant(LOTRBiomeVariant.FOREST_PINE, 0.2f);
+		addBiomeVariant(LOTRBiomeVariant.FOREST_MAPLE, 0.2f);
 		decorator.biomeOreFactor = 2.0f;
 		decorator.biomeGemFactor = 1.5f;
 		decorator.addSoil(new WorldGenMinable(LOTRMod.rock, 6, 60, Blocks.stone), 12.0f, 0, 96);
@@ -77,7 +79,7 @@ public class LOTREBiomeGenYellowMountains extends LOTRBiome {
 
 	@Override
 	public LOTRWaypoint.Region getBiomeWaypoints() {
-		return LOTREWaypoint.Region.Darkland;
+		return LOTREWaypoint.Region.darkLand;
 	}
 
 	@Override

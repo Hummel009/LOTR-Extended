@@ -1,0 +1,15 @@
+.gradle
+.idea/workspace.xml
+.idea/inspectionProfiles
+.idea/scopes
+.idea/uiDesigner.xml
+.idea/vcs.xml
+bin
+build
+run
+server/config
+server/logs
+server/mods/*.jar
+server/world
+server/server.properties
+server/*.json

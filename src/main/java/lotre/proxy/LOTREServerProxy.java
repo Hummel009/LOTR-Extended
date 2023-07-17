@@ -1,7 +1,6 @@
 package lotre.proxy;
 
 public class LOTREServerProxy {
-
 	public void onInit() {
 	}
 

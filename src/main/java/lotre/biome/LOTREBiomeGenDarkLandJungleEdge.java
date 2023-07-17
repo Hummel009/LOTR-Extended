@@ -1,22 +1,28 @@
 package lotre.biome;
 
-import java.util.Random;
-
 import lotr.common.LOTRMod;
-import lotr.common.entity.animal.*;
-import lotr.common.world.biome.*;
+import lotr.common.entity.animal.LOTREntityBird;
+import lotr.common.entity.animal.LOTREntityButterfly;
+import lotr.common.entity.animal.LOTREntityMidges;
+import lotr.common.world.biome.LOTRBiome;
+import lotr.common.world.biome.LOTRBiomeGenFarHarad;
+import lotr.common.world.biome.LOTRMusicRegion;
 import lotr.common.world.biome.variant.LOTRBiomeVariant;
-import lotr.common.world.feature.*;
+import lotr.common.world.feature.LOTRTreeType;
+import lotr.common.world.feature.LOTRWorldGenObsidianGravel;
 import lotr.common.world.map.LOTRWaypoint;
 import lotre.map.LOTREWaypoint;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.gen.feature.*;
+import net.minecraft.world.gen.feature.WorldGenMinable;
+import net.minecraft.world.gen.feature.WorldGenVines;
+import net.minecraft.world.gen.feature.WorldGenerator;
+
+import java.util.Random;
 
 public class LOTREBiomeGenDarkLandJungleEdge extends LOTRBiomeGenFarHarad {
 	private WorldGenerator obsidianGen = new LOTRWorldGenObsidianGravel();
-	protected int obsidianGravelRarity = 20;
 
 	public LOTREBiomeGenDarkLandJungleEdge(int i, boolean major) {
 		super(i, major);
@@ -32,10 +38,10 @@ public class LOTREBiomeGenDarkLandJungleEdge extends LOTRBiomeGenFarHarad {
 			spawnableLOTRAmbientList.add(new BiomeGenBase.SpawnListEntry(LOTREntityMidges.class, 10, 4, 4));
 		}
 		npcSpawnList.clear();
-		this.addBiomeVariant(LOTRBiomeVariant.FLOWERS);
-		this.addBiomeVariant(LOTRBiomeVariant.HILLS);
-		this.addBiomeVariant(LOTRBiomeVariant.MOUNTAIN);
-		this.addBiomeVariant(LOTRBiomeVariant.JUNGLE_DENSE);
+		addBiomeVariant(LOTRBiomeVariant.FLOWERS);
+		addBiomeVariant(LOTRBiomeVariant.HILLS);
+		addBiomeVariant(LOTRBiomeVariant.MOUNTAIN);
+		addBiomeVariant(LOTRBiomeVariant.JUNGLE_DENSE);
 		if (isMuddy()) {
 			decorator.addSoil(new WorldGenMinable(LOTRMod.mud, 32), 80.0f, 0, 256);
 			decorator.addSoil(new WorldGenMinable(LOTRMod.mud, 32), 80.0f, 0, 64);
@@ -78,7 +84,8 @@ public class LOTREBiomeGenDarkLandJungleEdge extends LOTRBiomeGenFarHarad {
 			int k1 = k + random.nextInt(16) + 8;
 			vines.generate(world, random, i1, j1, k1);
 		}
-		if (obsidianGravelRarity > 0 && random.nextInt(obsidianGravelRarity) == 0) {
+		int obsidianGravelRarity = 20;
+		if (random.nextInt(obsidianGravelRarity) == 0) {
 			int i1 = i + random.nextInt(16) + 8;
 			int k1 = k + random.nextInt(16) + 8;
 			j1 = world.getTopSolidOrLiquidBlock(i1, k1);
@@ -93,7 +100,7 @@ public class LOTREBiomeGenDarkLandJungleEdge extends LOTRBiomeGenFarHarad {
 
 	@Override
 	public LOTRWaypoint.Region getBiomeWaypoints() {
-		return LOTREWaypoint.Region.Darkland;
+		return LOTREWaypoint.Region.darkLand;
 	}
 
 	@Override

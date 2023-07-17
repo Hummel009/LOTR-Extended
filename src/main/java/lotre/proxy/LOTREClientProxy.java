@@ -3,7 +3,9 @@ package lotre.proxy;
 import lotre.LOTRECommander;
 import lotre.map.LOTRELabels;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.resources.*;
+import net.minecraft.client.resources.IReloadableResourceManager;
+import net.minecraft.client.resources.IResourceManager;
+import net.minecraft.client.resources.IResourceManagerReloadListener;
 import net.minecraft.util.ResourceLocation;
 
 public class LOTREClientProxy extends LOTREServerProxy implements IResourceManagerReloadListener {
