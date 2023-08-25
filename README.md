@@ -2,4 +2,4 @@
 
 https://lotrminecraftmod.fandom.com/ru/wiki/LOTR_Extended - статья, в которой подробно описан мод.
 
-Если скачать репозиторий и положить его по пути D:/Eclipse/Minecraft/LOTR-Extended, то, по идее, его потом можно спокойно импортировать в Eclipse или открыть через IntelliJ IDEA. Подразумевается, что на компьютере как минимум 1 раз выполнялась команда "gradlew setupDecompWorkspace eclipse".
+Для запуска и редактирования кода потребуется среда разработки Java и JDK. Подойдёт IntelliJ IDEA или Eclipse IDE, а также JDK 1.8.0_382. Также в папке проекта необходимо предварительно выполнить команду "gradlew setupDecompWorkspace eclipse" или "gradlew setupDecompWorkspace idea", после чего подождать окончания генерации файлов среды.
