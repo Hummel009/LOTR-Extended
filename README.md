@@ -34,8 +34,8 @@ https://lotrminecraftmod.fandom.com/ru/wiki/LOTR_Extended - статья, в к�
 
 Если на этом моменте что-то пошло не так и среда не установилась, значит, самое время проверить значения, указанные в таблице из первого раздела. Где их настроить:
 * Gradle JVM: *переменные среды ОС, а именно JAVA_HOME и Path*;
-* JDK: `Project -> Properties -> Java Build Path -> Libraries -> [нажимаете на JRE System Library] -> Remove -> Add Library -> JRE System Library -> Next -> Alternate JRE -> Installed JREs -> Add -> Standard VM -> Next -> [Выбираете JRE home] -> Finish -> Apply and close -> [в выпадающем меню справа от Alternate JRE выбираете нужную JRE] -> Finish -> Apply and close`;
-* Java: `Project -> Properties -> Java Compiler -> [Галочка на Enable project specific settings] -> [Выставляете Compiler compliance level] -> Apply and close`.
+* JDK: `Project -> Properties -> Java Build Path -> Libraries -> [нажимаете на JRE System Library] -> Remove -> Add Library -> JRE System Library -> Next -> Alternate JRE -> Installed JREs -> Add -> Standard VM -> Next -> [выбираете JRE home] -> Finish -> Apply and close -> [в выпадающем меню справа от Alternate JRE выбираете нужную JRE] -> Finish -> Apply and close`;
+* Java: `Project -> Properties -> Java Compiler -> [галочка на Enable project specific settings] -> [выставляете Compiler compliance level] -> Apply and close`.
 
 После изменения этих значений необходимо перезагрузить проект Gradle. Это можно сделать, нажав слева (под панелью Package Explorer) ПКМ по названию проекта и выбрав `Gradle -> Refresh Gradle Project`. После перезагрузки проекта в нижней части окна появится ***меню Gradle***. 
 
