@@ -24,7 +24,7 @@ public class LEWaypoints {
 	public static class Region {
 		public static LOTRWaypoint.Region darkLand;
 
-		protected static void preInit() {
+		public static void preInit() {
 			darkLand = LEAPI.addRegion("Darkland");
 		}
 	}
