@@ -14,7 +14,7 @@ import lotr.common.world.feature.LOTRWorldGenBoulder;
 import lotr.common.world.map.LOTRWaypoint;
 import lotr.common.world.structure2.LOTRWorldGenRuinedHouse;
 import lotr.common.world.structure2.LOTRWorldGenSmallStoneRuin;
-import lotre.map.LOTREWaypoint;
+import lotre.content.LEWaypoints;
 import net.minecraft.block.Block;
 import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.init.Blocks;
@@ -29,13 +29,13 @@ import net.minecraftforge.common.util.ForgeDirection;
 import java.awt.*;
 import java.util.Random;
 
-public class LOTREBiomeGenSouthTundra extends LOTRBiome {
-	public static NoiseGeneratorPerlin noiseDirt = new NoiseGeneratorPerlin(new Random(47684796930956L), 1);
-	public static NoiseGeneratorPerlin noiseStone = new NoiseGeneratorPerlin(new Random(8894086030764L), 1);
-	public static NoiseGeneratorPerlin noiseSnow = new NoiseGeneratorPerlin(new Random(2490309256000602L), 1);
-	private WorldGenerator boulderGen = new LOTRWorldGenBoulder(Blocks.stone, 0, 1, 3);
+public class LEBiomeGenSouthTundra extends LOTRBiome {
+	private static final NoiseGeneratorPerlin NOISE_DIRT = new NoiseGeneratorPerlin(new Random(47684796930956L), 1);
+	private static final NoiseGeneratorPerlin NOISE_STONE = new NoiseGeneratorPerlin(new Random(8894086030764L), 1);
+	private static final NoiseGeneratorPerlin NOISE_SNOW = new NoiseGeneratorPerlin(new Random(2490309256000602L), 1);
+	private final WorldGenerator boulderGen = new LOTRWorldGenBoulder(Blocks.stone, 0, 1, 3);
 
-	public LOTREBiomeGenSouthTundra(int i, boolean major) {
+	public LEBiomeGenSouthTundra(int i, boolean major) {
 		super(i, major);
 		setEnableSnow();
 		spawnableCreatureList.clear();
@@ -70,9 +70,9 @@ public class LOTREBiomeGenSouthTundra extends LOTRBiome {
 	}
 
 	public static boolean isTundraSnowy(int i, int k) {
-		double d1 = noiseSnow.func_151601_a(i * 0.002, k * 0.002);
-		double d2 = noiseSnow.func_151601_a(i * 0.05, k * 0.05);
-		double d3 = noiseSnow.func_151601_a(i * 0.3, k * 0.3);
+		double d1 = NOISE_SNOW.func_151601_a(i * 0.002, k * 0.002);
+		double d2 = NOISE_SNOW.func_151601_a(i * 0.05, k * 0.05);
+		double d3 = NOISE_SNOW.func_151601_a(i * 0.3, k * 0.3);
 		return d1 + d2 * 0.3 + d3 * 0.3 > 0.8;
 	}
 
@@ -121,10 +121,10 @@ public class LOTREBiomeGenSouthTundra extends LOTRBiome {
 		int topBlockMeta_pre = topBlockMeta;
 		Block fillerBlock_pre = fillerBlock;
 		int fillerBlockMeta_pre = fillerBlockMeta;
-		double d1 = noiseDirt.func_151601_a(i * 0.07, k * 0.07);
-		double d2 = noiseDirt.func_151601_a(i * 0.3, k * 0.3);
-		double d3 = noiseStone.func_151601_a(i * 0.07, k * 0.07);
-		if (d3 + noiseStone.func_151601_a(i * 0.3, k * 0.3) > 1.2) {
+		double d1 = NOISE_DIRT.func_151601_a(i * 0.07, k * 0.07);
+		double d2 = NOISE_DIRT.func_151601_a(i * 0.3, k * 0.3);
+		double d3 = NOISE_STONE.func_151601_a(i * 0.07, k * 0.07);
+		if (d3 + NOISE_STONE.func_151601_a(i * 0.3, k * 0.3) > 1.2) {
 			topBlock = Blocks.stone;
 			topBlockMeta = 0;
 			fillerBlock = topBlock;
@@ -142,6 +142,7 @@ public class LOTREBiomeGenSouthTundra extends LOTRBiome {
 
 	@SideOnly(Side.CLIENT)
 	@Override
+	@SuppressWarnings("NumericCastThatLosesPrecision")
 	public int getBiomeGrassColor(int i, int j, int k) {
 		int color1 = 10708034;
 		int color2 = 13747522;
@@ -166,7 +167,7 @@ public class LOTREBiomeGenSouthTundra extends LOTRBiome {
 
 	@Override
 	public LOTRWaypoint.Region getBiomeWaypoints() {
-		return LOTREWaypoint.Region.darkLand;
+		return LEWaypoints.Region.darkLand;
 	}
 
 	@Override

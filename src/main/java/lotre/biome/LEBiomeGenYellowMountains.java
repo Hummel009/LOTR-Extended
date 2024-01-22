@@ -9,8 +9,8 @@ import lotr.common.world.biome.variant.LOTRBiomeVariant;
 import lotr.common.world.feature.LOTRTreeType;
 import lotr.common.world.map.LOTRWaypoint;
 import lotr.common.world.spawning.LOTREventSpawner;
-import lotre.LOTRExtended;
-import lotre.map.LOTREWaypoint;
+import lotre.content.LEBlocks;
+import lotre.content.LEWaypoints;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -18,8 +18,8 @@ import net.minecraft.world.gen.feature.WorldGenMinable;
 
 import java.util.Random;
 
-public class LOTREBiomeGenYellowMountains extends LOTRBiome {
-	public LOTREBiomeGenYellowMountains(int i, boolean major) {
+public class LEBiomeGenYellowMountains extends LOTRBiome {
+	public LEBiomeGenYellowMountains(int i, boolean major) {
 		super(i, major);
 		npcSpawnList.clear();
 		addBiomeVariantSet(LOTRBiomeVariant.SET_MOUNTAINS);
@@ -63,7 +63,7 @@ public class LOTREBiomeGenYellowMountains extends LOTRBiome {
 				continue;
 			}
 			if (j >= stoneHeight) {
-				blocks[index] = LOTRExtended.rock;
+				blocks[index] = LEBlocks.rock;
 				meta[index] = 0;
 				continue;
 			}
@@ -79,7 +79,7 @@ public class LOTREBiomeGenYellowMountains extends LOTRBiome {
 
 	@Override
 	public LOTRWaypoint.Region getBiomeWaypoints() {
-		return LOTREWaypoint.Region.darkLand;
+		return LEWaypoints.Region.darkLand;
 	}
 
 	@Override

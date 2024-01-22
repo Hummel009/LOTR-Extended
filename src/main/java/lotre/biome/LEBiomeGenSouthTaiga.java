@@ -3,8 +3,8 @@ package lotre.biome;
 import lotr.common.world.biome.variant.LOTRBiomeVariant;
 import lotr.common.world.feature.LOTRTreeType;
 
-public class LOTREBiomeGenSouthTaiga extends LOTREBiomeGenSouthTundra {
-	public LOTREBiomeGenSouthTaiga(int i, boolean major) {
+public class LEBiomeGenSouthTaiga extends LEBiomeGenSouthTundra {
+	public LEBiomeGenSouthTaiga(int i, boolean major) {
 		super(i, major);
 		clearBiomeVariants();
 		variantChance = 0.75f;
