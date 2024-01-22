@@ -23,6 +23,9 @@ public class LEBiome {
 
 	private static int id = 255;
 
+	private LEBiome() {
+	}
+
 	public static void onInit() {
 		darkLandYellowMountains = new LEBiomeGenYellowMountains(id--, true).setTemperatureRainfall(0.8f, 0.8f).setMinMaxHeight(2.0f, 2.0f).setColor(0xEAC643).setBiomeName("yellowMountains");
 		darkLandTaiga = new LEBiomeGenSouthTaiga(id--, true).setTemperatureRainfall(0.4f, 0.4f).setMinMaxHeight(0.1f, 0.1f).setColor(0xA5C9AA).setBiomeName("southTaiga");

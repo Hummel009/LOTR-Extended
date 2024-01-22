@@ -26,6 +26,9 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 public class LEAPI {
+	private LEAPI() {
+	}
+
 	public static LOTRMapLabels addLabel(String enumName, LOTRBiome biomeLabel, int x, int y, float scale, int angle, float zoomMin, float zoomMan) {
 		return addLabel(enumName, (Object) biomeLabel, x, y, scale, angle, zoomMin, zoomMan);
 	}

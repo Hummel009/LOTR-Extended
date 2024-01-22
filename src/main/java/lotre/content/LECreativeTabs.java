@@ -7,6 +7,9 @@ import lotre.util.LEAPI;
 public class LECreativeTabs {
 	public static LOTRCreativeTabs tabBlocks;
 
+	private LECreativeTabs() {
+	}
+
 	public static void preInit() {
 		tabBlocks = LEAPI.getLOTRCreativeTab("tabBlock");
 	}

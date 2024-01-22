@@ -12,6 +12,9 @@ public class LEWaypoints {
 	public static LOTRWaypoint aldarion;
 	public static LOTRWaypoint taurethrim;
 
+	private LEWaypoints() {
+	}
+
 	public static void preInit() {
 		Region.preInit();
 		barazimabul = LEAPI.addWaypoint("BARAZIMABUL", Region.darkLand, LOTRFaction.UNALIGNED, 2963.0, 4044.0);
@@ -23,6 +26,9 @@ public class LEWaypoints {
 
 	public static class Region {
 		public static LOTRWaypoint.Region darkLand;
+
+		private Region() {
+		}
 
 		public static void preInit() {
 			darkLand = LEAPI.addRegion("Darkland");

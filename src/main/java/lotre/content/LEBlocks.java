@@ -8,6 +8,9 @@ import net.minecraft.block.Block;
 public class LEBlocks {
 	public static Block rock;
 
+	private LEBlocks() {
+	}
+
 	public static void preInit() {
 		rock = new LEBlockRock().setCreativeTab(LECreativeTabs.tabBlocks);
 		register(rock, "rock_yellow");
