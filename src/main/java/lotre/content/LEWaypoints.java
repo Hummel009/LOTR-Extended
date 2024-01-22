@@ -4,7 +4,7 @@ import lotr.common.fac.LOTRFaction;
 import lotr.common.world.map.LOTRWaypoint;
 import lotre.util.LEAPI;
 
-@SuppressWarnings("WeakerAccess")
+@SuppressWarnings({"WeakerAccess", "PublicField"})
 public class LEWaypoints {
 	public static LOTRWaypoint barazimabul;
 	public static LOTRWaypoint mabladDum;

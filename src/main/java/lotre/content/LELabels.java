@@ -3,7 +3,7 @@ package lotre.content;
 import lotr.client.gui.LOTRMapLabels;
 import lotre.util.LEAPI;
 
-@SuppressWarnings("WeakerAccess")
+@SuppressWarnings({"WeakerAccess", "PublicField"})
 public class LELabels {
 	public static LOTRMapLabels darkland;
 	public static LOTRMapLabels sunland;

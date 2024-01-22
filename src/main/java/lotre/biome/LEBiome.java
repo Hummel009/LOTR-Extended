@@ -2,7 +2,7 @@ package lotre.biome;
 
 import lotr.common.world.biome.*;
 
-@SuppressWarnings("WeakerAccess")
+@SuppressWarnings({"WeakerAccess", "PublicField"})
 public class LEBiome {
 	public static LOTRBiome darkLandYellowMountains;
 	public static LOTRBiome darkLandYellowMountainsCold;

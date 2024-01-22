@@ -4,7 +4,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import lotre.block.LEBlockRock;
 import net.minecraft.block.Block;
 
-@SuppressWarnings("WeakerAccess")
+@SuppressWarnings({"WeakerAccess", "PublicField"})
 public class LEBlocks {
 	public static Block rock;
 
