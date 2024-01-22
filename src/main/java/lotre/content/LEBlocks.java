@@ -8,14 +8,14 @@ import net.minecraft.block.Block;
 public class LEBlocks {
 	public static Block rock;
 
+	public static void preInit() {
+		rock = new LEBlockRock().setCreativeTab(LECreativeTabs.tabBlocks);
+		register(rock, "rock_yellow");
+	}
+
 	private static void register(Block block, String codename) {
 		block.setBlockName("lotre:" + codename);
 		block.setBlockTextureName("lotre:" + codename);
 		GameRegistry.registerBlock(block, "tile." + codename);
-	}
-
-	public static void preInit() {
-		rock = new LEBlockRock().setCreativeTab(LECreativeTabs.tabBlocks);
-		register(rock, "rock_yellow");
 	}
 }

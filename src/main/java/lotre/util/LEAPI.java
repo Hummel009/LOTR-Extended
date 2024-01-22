@@ -26,6 +26,36 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 public class LEAPI {
+	public static LOTRMapLabels addLabel(String enumName, LOTRBiome biomeLabel, int x, int y, float scale, int angle, float zoomMin, float zoomMan) {
+		return addLabel(enumName, (Object) biomeLabel, x, y, scale, angle, zoomMin, zoomMan);
+	}
+
+	private static LOTRMapLabels addLabel(String enumName, Object label, int x, int y, float scale, int angle, float zoomMin, float zoomMan) {
+		Class<?>[] classArr = new Class[]{Object.class, Integer.TYPE, Integer.TYPE, Float.TYPE, Integer.TYPE, Float.TYPE, Float.TYPE};
+		Object[] args = new Object[]{label, x, y, scale, angle, zoomMin, zoomMan};
+		return EnumHelper.addEnum(LOTRMapLabels.class, enumName, classArr, args);
+	}
+
+	public static LOTRMapLabels addLabel(String enumName, String stringLabel, int x, int y, float scale, int angle, float zoomMin, float zoomMan) {
+		return addLabel(enumName, (Object) stringLabel, x, y, scale, angle, zoomMin, zoomMan);
+	}
+
+	public static LOTRWaypoint.Region addRegion(String name) {
+		Class<?>[] classArr = new Class[]{};
+		Object[] args = new Object[]{};
+		return EnumHelper.addEnum(LOTRWaypoint.Region.class, name, classArr, args);
+	}
+
+	public static LOTRWaypoint addWaypoint(String name, LOTRWaypoint.Region region, LOTRFaction faction, double x, double z) {
+		return addWaypoint(name, region, faction, x, z, false);
+	}
+
+	private static LOTRWaypoint addWaypoint(String name, LOTRWaypoint.Region region, LOTRFaction faction, double x, double z, boolean hidden) {
+		Class<?>[] classArr = new Class[]{LOTRWaypoint.Region.class, LOTRFaction.class, Double.TYPE, Double.TYPE, Boolean.TYPE};
+		Object[] args = new Object[]{region, faction, x, z, hidden};
+		return EnumHelper.addEnum(LOTRWaypoint.class, name, classArr, args);
+	}
+
 	private static <T, E> T findAndInvokeMethod(Object[] arg, Class<? super E> clazz, E instance, String methodName, Class<?>... methodTypes) {
 		return findAndInvokeMethod(arg, clazz, instance, new String[]{methodName}, methodTypes);
 	}
@@ -70,6 +100,10 @@ public class LEAPI {
 		return getInputStream(getContainer(res), getPath(res));
 	}
 
+	public static LOTRCreativeTabs getLOTRCreativeTab(String name) {
+		return ReflectionHelper.getPrivateValue(LOTRCreativeTabs.class, null, name);
+	}
+
 	private static String getPath(ResourceLocation res) {
 		return "/assets/" + res.getResourceDomain() + '/' + res.getResourcePath();
 	}
@@ -87,40 +121,6 @@ public class LEAPI {
 			sepiaMapTexture = res;
 		}
 		ReflectionHelper.setPrivateValue(LOTRTextures.class, null, sepiaMapTexture, "sepiaMapTexture");
-	}
-
-	public static LOTRWaypoint.Region addRegion(String name) {
-		Class<?>[] classArr = new Class[]{};
-		Object[] args = new Object[]{};
-		return EnumHelper.addEnum(LOTRWaypoint.Region.class, name, classArr, args);
-	}
-
-	public static LOTRWaypoint addWaypoint(String name, LOTRWaypoint.Region region, LOTRFaction faction, double x, double z) {
-		return addWaypoint(name, region, faction, x, z, false);
-	}
-
-	private static LOTRWaypoint addWaypoint(String name, LOTRWaypoint.Region region, LOTRFaction faction, double x, double z, boolean hidden) {
-		Class<?>[] classArr = new Class[]{LOTRWaypoint.Region.class, LOTRFaction.class, Double.TYPE, Double.TYPE, Boolean.TYPE};
-		Object[] args = new Object[]{region, faction, x, z, hidden};
-		return EnumHelper.addEnum(LOTRWaypoint.class, name, classArr, args);
-	}
-
-	public static LOTRMapLabels addLabel(String enumName, LOTRBiome biomeLabel, int x, int y, float scale, int angle, float zoomMin, float zoomMan) {
-		return addLabel(enumName, (Object) biomeLabel, x, y, scale, angle, zoomMin, zoomMan);
-	}
-
-	private static LOTRMapLabels addLabel(String enumName, Object label, int x, int y, float scale, int angle, float zoomMin, float zoomMan) {
-		Class<?>[] classArr = new Class[]{Object.class, Integer.TYPE, Integer.TYPE, Float.TYPE, Integer.TYPE, Float.TYPE, Float.TYPE};
-		Object[] args = new Object[]{label, x, y, scale, angle, zoomMin, zoomMan};
-		return EnumHelper.addEnum(LOTRMapLabels.class, enumName, classArr, args);
-	}
-
-	public static LOTRMapLabels addLabel(String enumName, String stringLabel, int x, int y, float scale, int angle, float zoomMin, float zoomMan) {
-		return addLabel(enumName, (Object) stringLabel, x, y, scale, angle, zoomMin, zoomMan);
-	}
-
-	public static LOTRCreativeTabs getLOTRCreativeTab(String name) {
-		return ReflectionHelper.getPrivateValue(LOTRCreativeTabs.class, null, name);
 	}
 
 	@SuppressWarnings("NumericCastThatLosesPrecision")

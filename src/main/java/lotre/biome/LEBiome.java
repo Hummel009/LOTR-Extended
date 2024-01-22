@@ -4,7 +4,6 @@ import lotr.common.world.biome.*;
 
 @SuppressWarnings("WeakerAccess")
 public class LEBiome {
-	private static int id = 255;
 	public static LOTRBiome darkLandYellowMountains;
 	public static LOTRBiome darkLandYellowMountainsCold;
 	public static LOTRBiome darkLandTaiga;
@@ -21,6 +20,8 @@ public class LEBiome {
 	public static LOTRBiome darkLandKanukaForest;
 	public static LOTRBiome sunLandMountains;
 	public static LOTRBiome sunLandDesert;
+
+	private static int id = 255;
 
 	public static void onInit() {
 		darkLandYellowMountains = new LEBiomeGenYellowMountains(id--, true).setTemperatureRainfall(0.8f, 0.8f).setMinMaxHeight(2.0f, 2.0f).setColor(0xEAC643).setBiomeName("yellowMountains");
