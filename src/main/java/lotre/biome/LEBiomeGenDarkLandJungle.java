@@ -26,28 +26,22 @@ public class LEBiomeGenDarkLandJungle extends LOTRBiomeGenFarHarad {
 
 	public LEBiomeGenDarkLandJungle(int i, boolean major) {
 		super(i, major);
-		if (isMuddy()) {
-			topBlock = LOTRMod.mudGrass;
-			fillerBlock = LOTRMod.mud;
-		}
+		topBlock = LOTRMod.mudGrass;
+		fillerBlock = LOTRMod.mud;
 		spawnableCreatureList.clear();
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(LOTREntityFlamingo.class, 10, 4, 4));
 		spawnableLOTRAmbientList.clear();
 		spawnableLOTRAmbientList.add(new BiomeGenBase.SpawnListEntry(LOTREntityBird.class, 10, 4, 4));
 		spawnableLOTRAmbientList.add(new BiomeGenBase.SpawnListEntry(LOTREntityButterfly.class, 15, 4, 4));
-		if (isMuddy()) {
-			spawnableLOTRAmbientList.add(new BiomeGenBase.SpawnListEntry(LOTREntityMidges.class, 10, 4, 4));
-		}
+		spawnableLOTRAmbientList.add(new BiomeGenBase.SpawnListEntry(LOTREntityMidges.class, 10, 4, 4));
 		spawnableMonsterList.add(new BiomeGenBase.SpawnListEntry(LOTREntityJungleScorpion.class, 30, 4, 4));
 		npcSpawnList.clear();
 		addBiomeVariant(LOTRBiomeVariant.FLOWERS);
 		addBiomeVariant(LOTRBiomeVariant.HILLS);
 		addBiomeVariant(LOTRBiomeVariant.MOUNTAIN);
 		addBiomeVariant(LOTRBiomeVariant.JUNGLE_DENSE);
-		if (isMuddy()) {
-			decorator.addSoil(new WorldGenMinable(LOTRMod.mud, 32), 80.0f, 0, 256);
-			decorator.addSoil(new WorldGenMinable(LOTRMod.mud, 32), 80.0f, 0, 64);
-		}
+		decorator.addSoil(new WorldGenMinable(LOTRMod.mud, 32), 80.0f, 0, 256);
+		decorator.addSoil(new WorldGenMinable(LOTRMod.mud, 32), 80.0f, 0, 64);
 		decorator.addOre(new WorldGenMinable(Blocks.gold_ore, 4), 3.0f, 0, 48);
 		decorator.addGem(new WorldGenMinable(LOTRMod.oreGem, 4, 8, Blocks.stone), 3.0f, 0, 48);
 		decorator.treesPerChunk = 40;
@@ -126,16 +120,10 @@ public class LEBiomeGenDarkLandJungle extends LOTRBiomeGenFarHarad {
 		return false;
 	}
 
-	private boolean isMuddy() {
-		return true;
-	}
-
 	@Override
 	protected double modifyStoneNoiseForFiller(double stoneNoise) {
 		double stoneNoise1 = stoneNoise;
-		if (isMuddy()) {
-			stoneNoise1 += 40.0;
-		}
+		stoneNoise1 += 40.0;
 		return stoneNoise1;
 	}
 }

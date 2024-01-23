@@ -117,10 +117,10 @@ public class LEBiomeGenSouthTundra extends LOTRBiome {
 
 	@Override
 	public void generateBiomeTerrain(World world, Random random, Block[] blocks, byte[] meta, int i, int k, double stoneNoise, int height, LOTRBiomeVariant variant) {
-		Block topBlock_pre = topBlock;
-		int topBlockMeta_pre = topBlockMeta;
-		Block fillerBlock_pre = fillerBlock;
-		int fillerBlockMeta_pre = fillerBlockMeta;
+		Block topBlockPre = topBlock;
+		int topBlockMetaPre = topBlockMeta;
+		Block fillerBlockPre = fillerBlock;
+		int fillerBlockMetaPre = fillerBlockMeta;
 		double d1 = NOISE_DIRT.func_151601_a(i * 0.07, k * 0.07);
 		double d2 = NOISE_DIRT.func_151601_a(i * 0.3, k * 0.3);
 		double d3 = NOISE_STONE.func_151601_a(i * 0.07, k * 0.07);
@@ -134,10 +134,10 @@ public class LEBiomeGenSouthTundra extends LOTRBiome {
 			topBlockMeta = 1;
 		}
 		super.generateBiomeTerrain(world, random, blocks, meta, i, k, stoneNoise, height, variant);
-		topBlock = topBlock_pre;
-		topBlockMeta = topBlockMeta_pre;
-		fillerBlock = fillerBlock_pre;
-		fillerBlockMeta = fillerBlockMeta_pre;
+		topBlock = topBlockPre;
+		topBlockMeta = topBlockMetaPre;
+		fillerBlock = fillerBlockPre;
+		fillerBlockMeta = fillerBlockMetaPre;
 	}
 
 	@SideOnly(Side.CLIENT)

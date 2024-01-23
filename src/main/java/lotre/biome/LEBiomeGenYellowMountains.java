@@ -59,16 +59,15 @@ public class LEBiomeGenYellowMountains extends LOTRBiome {
 		for (int j = ySize - 1; j >= sandHeight; --j) {
 			int index = xzIndex * ySize + j;
 			Block block = blocks[index];
-			if (block != topBlock && block != fillerBlock) {
-				continue;
+			if (block == topBlock || block == fillerBlock) {
+				if (j >= stoneHeight) {
+					blocks[index] = LEBlocks.rock;
+					meta[index] = 0;
+				} else {
+					blocks[index] = Blocks.sand;
+					meta[index] = 1;
+				}
 			}
-			if (j >= stoneHeight) {
-				blocks[index] = LEBlocks.rock;
-				meta[index] = 0;
-				continue;
-			}
-			blocks[index] = Blocks.sand;
-			meta[index] = 1;
 		}
 	}
 
