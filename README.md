@@ -21,22 +21,41 @@ https://lotrminecraftmod.fandom.com/ru/wiki/LOTR_Extended - статья, в к�
 <!----------------------------------------------------------------------------->
 
 [code_smells_badge]: https://sonarcloud.io/api/project_badges/measure?project=Hummel009_LOTR-Extended&metric=code_smells
+
 [code_smells_link]: https://sonarcloud.io/summary/overall?id=Hummel009_LOTR-Extended
+
 [maintainability_rating_badge]: https://sonarcloud.io/api/project_badges/measure?project=Hummel009_LOTR-Extended&metric=sqale_rating
+
 [maintainability_rating_link]: https://sonarcloud.io/summary/overall?id=Hummel009_LOTR-Extended
+
 [security_rating_badge]: https://sonarcloud.io/api/project_badges/measure?project=Hummel009_LOTR-Extended&metric=security_rating
+
 [security_rating_link]: https://sonarcloud.io/summary/overall?id=Hummel009_LOTR-Extended
+
 [bugs_badge]: https://sonarcloud.io/api/project_badges/measure?project=Hummel009_LOTR-Extended&metric=bugs
+
 [bugs_link]: https://sonarcloud.io/summary/overall?id=Hummel009_LOTR-Extended
+
 [vulnerabilities_badge]: https://sonarcloud.io/api/project_badges/measure?project=Hummel009_LOTR-Extended&metric=vulnerabilities
+
 [vulnerabilities_link]: https://sonarcloud.io/summary/overall?id=Hummel009_LOTR-Extended
+
 [duplicated_lines_density_badge]: https://sonarcloud.io/api/project_badges/measure?project=Hummel009_LOTR-Extended&metric=duplicated_lines_density
+
 [duplicated_lines_density_link]: https://sonarcloud.io/summary/overall?id=Hummel009_LOTR-Extended
+
 [reliability_rating_badge]: https://sonarcloud.io/api/project_badges/measure?project=Hummel009_LOTR-Extended&metric=reliability_rating
+
 [reliability_rating_link]: https://sonarcloud.io/summary/overall?id=Hummel009_LOTR-Extended
+
 [quality_gate_status_badge]: https://sonarcloud.io/api/project_badges/measure?project=Hummel009_LOTR-Extended&metric=alert_status
+
 [quality_gate_status_link]: https://sonarcloud.io/summary/overall?id=Hummel009_LOTR-Extended
+
 [technical_debt_badge]: https://sonarcloud.io/api/project_badges/measure?project=Hummel009_LOTR-Extended&metric=sqale_index
+
 [technical_debt_link]: https://sonarcloud.io/summary/overall?id=Hummel009_LOTR-Extended
+
 [lines_of_code_badge]: https://sonarcloud.io/api/project_badges/measure?project=Hummel009_LOTR-Extended&metric=ncloc
+
 [lines_of_code_link]: https://sonarcloud.io/summary/overall?id=Hummel009_LOTR-Extended
