@@ -15,10 +15,6 @@ pluginManagement {
 	}
 }
 
-dependencyResolutionManagement {
-	repositoriesMode.set(RepositoriesMode.PREFER_PROJECT)
-}
-
 plugins {
 	id("org.gradle.toolchains.foojay-resolver-convention") version "0.8.0"
 }
