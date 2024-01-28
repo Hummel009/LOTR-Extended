@@ -16,8 +16,6 @@
 LOTR Extended - аддон к моду "Властелин колец" для Minecraft. Добавляет два новых континента - Тёмные земли и Землю
 Солнца, биомы в них, а также несколько путевых точек.
 
-https://lotrminecraftmod.fandom.com/ru/wiki/LOTR_Extended - статья, в которой подробно описан мод.
-
 <!----------------------------------------------------------------------------->
 
 [code_smells_badge]: https://sonarcloud.io/api/project_badges/measure?project=Hummel009_LOTR-Extended&metric=code_smells
