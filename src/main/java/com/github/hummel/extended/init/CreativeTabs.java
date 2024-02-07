@@ -1,7 +1,7 @@
 package com.github.hummel.extended.init;
 
-import lotr.common.LOTRCreativeTabs;
 import com.github.hummel.extended.api.API;
+import lotr.common.LOTRCreativeTabs;
 
 @SuppressWarnings({"WeakerAccess", "PublicField"})
 public class CreativeTabs {

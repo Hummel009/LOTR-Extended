@@ -1,5 +1,7 @@
 package com.github.hummel.extended.biome;
 
+import com.github.hummel.extended.init.Blocks;
+import com.github.hummel.extended.init.Waypoints;
 import lotr.common.LOTRMod;
 import lotr.common.entity.npc.LOTREntityIronHillsMerchant;
 import lotr.common.entity.npc.LOTREntityScrapTrader;
@@ -9,8 +11,6 @@ import lotr.common.world.biome.variant.LOTRBiomeVariant;
 import lotr.common.world.feature.LOTRTreeType;
 import lotr.common.world.map.LOTRWaypoint;
 import lotr.common.world.spawning.LOTREventSpawner;
-import com.github.hummel.extended.init.Blocks;
-import com.github.hummel.extended.init.Waypoints;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenMinable;
@@ -77,7 +77,7 @@ public class BiomeYellowMountains extends LOTRBiome {
 
 	@Override
 	public LOTRWaypoint.Region getBiomeWaypoints() {
-		return Waypoints.Region.darkLand;
+		return Waypoints.Regions.darkLand;
 	}
 
 	@Override

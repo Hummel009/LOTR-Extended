@@ -1,7 +1,7 @@
 package com.github.hummel.extended.init;
 
-import cpw.mods.fml.common.registry.GameRegistry;
 import com.github.hummel.extended.block.BlockRock;
+import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 
 @SuppressWarnings({"WeakerAccess", "PublicField"})

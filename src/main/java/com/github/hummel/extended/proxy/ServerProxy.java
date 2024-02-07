@@ -5,4 +5,9 @@ public class ServerProxy implements CommonProxy {
 	public void onInit() {
 		CommonProxy.super.onInit();
 	}
+
+	@Override
+	public void preInit() {
+		CommonProxy.super.preInit();
+	}
 }

@@ -1,5 +1,6 @@
 package com.github.hummel.extended.biome;
 
+import com.github.hummel.extended.init.Waypoints;
 import lotr.common.LOTRMod;
 import lotr.common.entity.animal.LOTREntityBird;
 import lotr.common.entity.animal.LOTREntityButterfly;
@@ -11,7 +12,6 @@ import lotr.common.world.biome.variant.LOTRBiomeVariant;
 import lotr.common.world.feature.LOTRTreeType;
 import lotr.common.world.feature.LOTRWorldGenObsidianGravel;
 import lotr.common.world.map.LOTRWaypoint;
-import com.github.hummel.extended.init.Waypoints;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
@@ -100,7 +100,7 @@ public class BiomeDarkLandJungleEdge extends LOTRBiomeGenFarHarad {
 
 	@Override
 	public LOTRWaypoint.Region getBiomeWaypoints() {
-		return Waypoints.Region.darkLand;
+		return Waypoints.Regions.darkLand;
 	}
 
 	@Override

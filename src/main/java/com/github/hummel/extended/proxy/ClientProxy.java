@@ -21,4 +21,9 @@ public class ClientProxy implements CommonProxy {
 
 		MapLabels.onInit();
 	}
+
+	@Override
+	public void preInit() {
+		CommonProxy.super.preInit();
+	}
 }

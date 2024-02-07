@@ -1,5 +1,6 @@
 package com.github.hummel.extended.biome;
 
+import com.github.hummel.extended.init.Waypoints;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import lotr.common.LOTRMod;
@@ -14,7 +15,6 @@ import lotr.common.world.feature.LOTRWorldGenBoulder;
 import lotr.common.world.map.LOTRWaypoint;
 import lotr.common.world.structure2.LOTRWorldGenRuinedHouse;
 import lotr.common.world.structure2.LOTRWorldGenSmallStoneRuin;
-import com.github.hummel.extended.init.Waypoints;
 import net.minecraft.block.Block;
 import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.init.Blocks;
@@ -167,7 +167,7 @@ public class BiomeSouthTundra extends LOTRBiome {
 
 	@Override
 	public LOTRWaypoint.Region getBiomeWaypoints() {
-		return Waypoints.Region.darkLand;
+		return Waypoints.Regions.darkLand;
 	}
 
 	@Override
