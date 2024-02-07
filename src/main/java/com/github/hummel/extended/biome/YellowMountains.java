@@ -1,4 +1,4 @@
-package lotre.biome;
+package com.github.hummel.extended.biome;
 
 import lotr.common.LOTRMod;
 import lotr.common.entity.npc.LOTREntityIronHillsMerchant;
@@ -9,17 +9,16 @@ import lotr.common.world.biome.variant.LOTRBiomeVariant;
 import lotr.common.world.feature.LOTRTreeType;
 import lotr.common.world.map.LOTRWaypoint;
 import lotr.common.world.spawning.LOTREventSpawner;
-import lotre.content.LEBlocks;
-import lotre.content.LEWaypoints;
+import com.github.hummel.extended.init.Blocks;
+import com.github.hummel.extended.init.Waypoints;
 import net.minecraft.block.Block;
-import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 
 import java.util.Random;
 
-public class LEBiomeGenYellowMountains extends LOTRBiome {
-	public LEBiomeGenYellowMountains(int i, boolean major) {
+public class YellowMountains extends LOTRBiome {
+	public YellowMountains(int i, boolean major) {
 		super(i, major);
 		npcSpawnList.clear();
 		addBiomeVariantSet(LOTRBiomeVariant.SET_MOUNTAINS);
@@ -30,7 +29,7 @@ public class LEBiomeGenYellowMountains extends LOTRBiome {
 		addBiomeVariant(LOTRBiomeVariant.FOREST_MAPLE, 0.2f);
 		decorator.biomeOreFactor = 2.0f;
 		decorator.biomeGemFactor = 1.5f;
-		decorator.addSoil(new WorldGenMinable(LOTRMod.rock, 6, 60, Blocks.stone), 12.0f, 0, 96);
+		decorator.addSoil(new WorldGenMinable(LOTRMod.rock, 6, 60, net.minecraft.init.Blocks.stone), 12.0f, 0, 96);
 		decorator.addOre(new WorldGenMinable(LOTRMod.oreGlowstone, 4), 8.0f, 0, 48);
 		decorator.treesPerChunk = 1;
 		decorator.flowersPerChunk = 1;
@@ -61,10 +60,10 @@ public class LEBiomeGenYellowMountains extends LOTRBiome {
 			Block block = blocks[index];
 			if (block == topBlock || block == fillerBlock) {
 				if (j >= stoneHeight) {
-					blocks[index] = LEBlocks.rock;
+					blocks[index] = Blocks.rock;
 					meta[index] = 0;
 				} else {
-					blocks[index] = Blocks.sand;
+					blocks[index] = net.minecraft.init.Blocks.sand;
 					meta[index] = 1;
 				}
 			}
@@ -78,7 +77,7 @@ public class LEBiomeGenYellowMountains extends LOTRBiome {
 
 	@Override
 	public LOTRWaypoint.Region getBiomeWaypoints() {
-		return LEWaypoints.Region.darkLand;
+		return Waypoints.Region.darkLand;
 	}
 
 	@Override

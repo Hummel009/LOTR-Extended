@@ -1,4 +1,4 @@
-package lotre.util;
+package com.github.hummel.extended.api;
 
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.Loader;
@@ -25,25 +25,25 @@ import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-public class LEAPI {
-	private LEAPI() {
+public class API {
+	private API() {
 	}
 
-	public static LOTRMapLabels addLabel(String enumName, LOTRBiome biomeLabel, int x, int y, float scale, int angle, float zoomMin, float zoomMan) {
-		return addLabel(enumName, (Object) biomeLabel, x, y, scale, angle, zoomMin, zoomMan);
+	public static LOTRMapLabels addMapLabel(String enumName, LOTRBiome biomeLabel, int x, int y, float scale, int angle, float zoomMin, float zoomMan) {
+		return addMapLabel(enumName, (Object) biomeLabel, x, y, scale, angle, zoomMin, zoomMan);
 	}
 
-	private static LOTRMapLabels addLabel(String enumName, Object label, int x, int y, float scale, int angle, float zoomMin, float zoomMan) {
+	private static LOTRMapLabels addMapLabel(String enumName, Object label, int x, int y, float scale, int angle, float zoomMin, float zoomMan) {
 		Class<?>[] classArr = new Class[]{Object.class, Integer.TYPE, Integer.TYPE, Float.TYPE, Integer.TYPE, Float.TYPE, Float.TYPE};
 		Object[] args = new Object[]{label, x, y, scale, angle, zoomMin, zoomMan};
 		return EnumHelper.addEnum(LOTRMapLabels.class, enumName, classArr, args);
 	}
 
-	public static LOTRMapLabels addLabel(String enumName, String stringLabel, int x, int y, float scale, int angle, float zoomMin, float zoomMan) {
-		return addLabel(enumName, (Object) stringLabel, x, y, scale, angle, zoomMin, zoomMan);
+	public static LOTRMapLabels addMapLabel(String enumName, String stringLabel, int x, int y, float scale, int angle, float zoomMin, float zoomMan) {
+		return addMapLabel(enumName, (Object) stringLabel, x, y, scale, angle, zoomMin, zoomMan);
 	}
 
-	public static LOTRWaypoint.Region addRegion(String name) {
+	public static LOTRWaypoint.Region addWaypointRegion(String name) {
 		Class<?>[] classArr = new Class[]{};
 		Object[] args = new Object[]{};
 		return EnumHelper.addEnum(LOTRWaypoint.Region.class, name, classArr, args);
@@ -126,8 +126,7 @@ public class LEAPI {
 		ReflectionHelper.setPrivateValue(LOTRTextures.class, null, sepiaMapTexture, "sepiaMapTexture");
 	}
 
-	@SuppressWarnings("NumericCastThatLosesPrecision")
-	public static void setServerMapImage(ResourceLocation res) {
+	public static void setCommonMapImage(ResourceLocation res) {
 		BufferedImage img = getImage(getInputStream(res));
 		LOTRGenLayerWorld.imageWidth = img.getWidth();
 		LOTRGenLayerWorld.imageHeight = img.getHeight();

@@ -1,18 +1,18 @@
-package lotre.content;
+package com.github.hummel.extended.init;
 
 import cpw.mods.fml.common.registry.GameRegistry;
-import lotre.block.LEBlockRock;
+import com.github.hummel.extended.block.Rock;
 import net.minecraft.block.Block;
 
 @SuppressWarnings({"WeakerAccess", "PublicField"})
-public class LEBlocks {
+public class Blocks {
 	public static Block rock;
 
-	private LEBlocks() {
+	private Blocks() {
 	}
 
 	public static void preInit() {
-		rock = new LEBlockRock().setCreativeTab(LECreativeTabs.tabBlocks);
+		rock = new Rock().setCreativeTab(CreativeTabs.tabBlocks);
 		register(rock, "rock_yellow");
 	}
 

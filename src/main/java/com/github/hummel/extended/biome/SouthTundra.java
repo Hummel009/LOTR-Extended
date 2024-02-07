@@ -1,4 +1,4 @@
-package lotre.biome;
+package com.github.hummel.extended.biome;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -14,7 +14,7 @@ import lotr.common.world.feature.LOTRWorldGenBoulder;
 import lotr.common.world.map.LOTRWaypoint;
 import lotr.common.world.structure2.LOTRWorldGenRuinedHouse;
 import lotr.common.world.structure2.LOTRWorldGenSmallStoneRuin;
-import lotre.content.LEWaypoints;
+import com.github.hummel.extended.init.Waypoints;
 import net.minecraft.block.Block;
 import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.init.Blocks;
@@ -29,13 +29,13 @@ import net.minecraftforge.common.util.ForgeDirection;
 import java.awt.*;
 import java.util.Random;
 
-public class LEBiomeGenSouthTundra extends LOTRBiome {
+public class SouthTundra extends LOTRBiome {
 	private static final NoiseGeneratorPerlin NOISE_DIRT = new NoiseGeneratorPerlin(new Random(47684796930956L), 1);
 	private static final NoiseGeneratorPerlin NOISE_STONE = new NoiseGeneratorPerlin(new Random(8894086030764L), 1);
 	private static final NoiseGeneratorPerlin NOISE_SNOW = new NoiseGeneratorPerlin(new Random(2490309256000602L), 1);
 	private final WorldGenerator boulderGen = new LOTRWorldGenBoulder(Blocks.stone, 0, 1, 3);
 
-	public LEBiomeGenSouthTundra(int i, boolean major) {
+	public SouthTundra(int i, boolean major) {
 		super(i, major);
 		setEnableSnow();
 		spawnableCreatureList.clear();
@@ -167,7 +167,7 @@ public class LEBiomeGenSouthTundra extends LOTRBiome {
 
 	@Override
 	public LOTRWaypoint.Region getBiomeWaypoints() {
-		return LEWaypoints.Region.darkLand;
+		return Waypoints.Region.darkLand;
 	}
 
 	@Override

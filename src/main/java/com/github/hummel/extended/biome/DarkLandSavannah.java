@@ -1,4 +1,4 @@
-package lotre.biome;
+package com.github.hummel.extended.biome;
 
 import lotr.common.LOTRMod;
 import lotr.common.world.biome.LOTRBiomeGenFarHarad;
@@ -8,7 +8,7 @@ import lotr.common.world.feature.LOTRWorldGenBoulder;
 import lotr.common.world.feature.LOTRWorldGenYams;
 import lotr.common.world.map.LOTRWaypoint;
 import lotr.common.world.spawning.LOTRBiomeSpawnList;
-import lotre.content.LEWaypoints;
+import com.github.hummel.extended.init.Waypoints;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenDoublePlant;
@@ -17,11 +17,11 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 
 import java.util.Random;
 
-public class LEBiomeGenDarkLandSavannah extends LOTRBiomeGenFarHarad {
+public class DarkLandSavannah extends LOTRBiomeGenFarHarad {
 	private final LOTRBiomeSpawnList populatedSpawnList = new LOTRBiomeSpawnList(this);
 	private final WorldGenerator boulderGen = new LOTRWorldGenBoulder(Blocks.stone, 0, 1, 3);
 
-	public LEBiomeGenDarkLandSavannah(int i, boolean major) {
+	public DarkLandSavannah(int i, boolean major) {
 		super(i, major);
 		npcSpawnList.clear();
 
@@ -74,7 +74,7 @@ public class LEBiomeGenDarkLandSavannah extends LOTRBiomeGenFarHarad {
 
 	@Override
 	public LOTRWaypoint.Region getBiomeWaypoints() {
-		return LEWaypoints.Region.darkLand;
+		return Waypoints.Region.darkLand;
 	}
 
 	@Override
