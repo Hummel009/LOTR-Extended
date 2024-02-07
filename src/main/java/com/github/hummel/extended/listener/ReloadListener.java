@@ -1,4 +1,4 @@
-package com.github.hummel.extended.util;
+package com.github.hummel.extended.listener;
 
 import com.github.hummel.extended.api.API;
 import net.minecraft.client.resources.IResourceManager;
