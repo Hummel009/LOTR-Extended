@@ -3,8 +3,8 @@ package com.github.hummel.extended.biome;
 import lotr.common.world.biome.variant.LOTRBiomeVariant;
 import lotr.common.world.feature.LOTRTreeType;
 
-public class SouthTaiga extends SouthTundra {
-	public SouthTaiga(int i, boolean major) {
+public class BiomeSouthTaiga extends BiomeSouthTundra {
+	public BiomeSouthTaiga(int i, boolean major) {
 		super(i, major);
 		clearBiomeVariants();
 		variantChance = 0.75f;

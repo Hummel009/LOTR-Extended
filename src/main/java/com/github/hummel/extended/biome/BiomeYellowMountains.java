@@ -17,8 +17,8 @@ import net.minecraft.world.gen.feature.WorldGenMinable;
 
 import java.util.Random;
 
-public class YellowMountains extends LOTRBiome {
-	public YellowMountains(int i, boolean major) {
+public class BiomeYellowMountains extends LOTRBiome {
+	public BiomeYellowMountains(int i, boolean major) {
 		super(i, major);
 		npcSpawnList.clear();
 		addBiomeVariantSet(LOTRBiomeVariant.SET_MOUNTAINS);

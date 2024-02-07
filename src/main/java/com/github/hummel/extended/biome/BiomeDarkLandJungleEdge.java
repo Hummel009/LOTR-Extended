@@ -21,10 +21,10 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 
 import java.util.Random;
 
-public class DarkLandJungleEdge extends LOTRBiomeGenFarHarad {
+public class BiomeDarkLandJungleEdge extends LOTRBiomeGenFarHarad {
 	private final WorldGenerator obsidianGen = new LOTRWorldGenObsidianGravel();
 
-	public DarkLandJungleEdge(int i, boolean major) {
+	public BiomeDarkLandJungleEdge(int i, boolean major) {
 		super(i, major);
 		if (isMuddy()) {
 			topBlock = LOTRMod.mudGrass;

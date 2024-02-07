@@ -29,13 +29,13 @@ import net.minecraftforge.common.util.ForgeDirection;
 import java.awt.*;
 import java.util.Random;
 
-public class SouthTundra extends LOTRBiome {
+public class BiomeSouthTundra extends LOTRBiome {
 	private static final NoiseGeneratorPerlin NOISE_DIRT = new NoiseGeneratorPerlin(new Random(47684796930956L), 1);
 	private static final NoiseGeneratorPerlin NOISE_STONE = new NoiseGeneratorPerlin(new Random(8894086030764L), 1);
 	private static final NoiseGeneratorPerlin NOISE_SNOW = new NoiseGeneratorPerlin(new Random(2490309256000602L), 1);
 	private final WorldGenerator boulderGen = new LOTRWorldGenBoulder(Blocks.stone, 0, 1, 3);
 
-	public SouthTundra(int i, boolean major) {
+	public BiomeSouthTundra(int i, boolean major) {
 		super(i, major);
 		setEnableSnow();
 		spawnableCreatureList.clear();

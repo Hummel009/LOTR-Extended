@@ -17,11 +17,11 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 
 import java.util.Random;
 
-public class DarkLandSavannah extends LOTRBiomeGenFarHarad {
+public class BiomeDarkLandSavannah extends LOTRBiomeGenFarHarad {
 	private final LOTRBiomeSpawnList populatedSpawnList = new LOTRBiomeSpawnList(this);
 	private final WorldGenerator boulderGen = new LOTRWorldGenBoulder(Blocks.stone, 0, 1, 3);
 
-	public DarkLandSavannah(int i, boolean major) {
+	public BiomeDarkLandSavannah(int i, boolean major) {
 		super(i, major);
 		npcSpawnList.clear();
 
