@@ -1,7 +1,7 @@
-package com.github.hummel.extended.biome;
+package com.github.hummel.lotre.biome;
 
-import com.github.hummel.extended.init.Blocks;
-import com.github.hummel.extended.init.Waypoints;
+import com.github.hummel.lotre.init.Blocks;
+import com.github.hummel.lotre.init.Waypoints;
 import lotr.common.LOTRMod;
 import lotr.common.entity.npc.LOTREntityIronHillsMerchant;
 import lotr.common.entity.npc.LOTREntityScrapTrader;

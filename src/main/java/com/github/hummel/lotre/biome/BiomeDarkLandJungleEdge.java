@@ -1,8 +1,10 @@
-package com.github.hummel.extended.biome;
+package com.github.hummel.lotre.biome;
 
-import com.github.hummel.extended.init.Waypoints;
+import com.github.hummel.lotre.init.Waypoints;
 import lotr.common.LOTRMod;
-import lotr.common.entity.animal.*;
+import lotr.common.entity.animal.LOTREntityBird;
+import lotr.common.entity.animal.LOTREntityButterfly;
+import lotr.common.entity.animal.LOTREntityMidges;
 import lotr.common.world.biome.LOTRBiome;
 import lotr.common.world.biome.LOTRBiomeGenFarHarad;
 import lotr.common.world.biome.LOTRMusicRegion;
@@ -10,8 +12,6 @@ import lotr.common.world.biome.variant.LOTRBiomeVariant;
 import lotr.common.world.feature.LOTRTreeType;
 import lotr.common.world.feature.LOTRWorldGenObsidianGravel;
 import lotr.common.world.map.LOTRWaypoint;
-import lotr.common.world.spawning.LOTRBiomeSpawnList;
-import lotr.common.world.spawning.LOTRSpawnList;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
@@ -21,31 +21,35 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 
 import java.util.Random;
 
-public class BiomeDarkLandJungle extends LOTRBiomeGenFarHarad {
+public class BiomeDarkLandJungleEdge extends LOTRBiomeGenFarHarad {
 	private final WorldGenerator obsidianGen = new LOTRWorldGenObsidianGravel();
 
-	public BiomeDarkLandJungle(int i, boolean major) {
+	public BiomeDarkLandJungleEdge(int i, boolean major) {
 		super(i, major);
-		topBlock = LOTRMod.mudGrass;
-		fillerBlock = LOTRMod.mud;
+		if (isMuddy()) {
+			topBlock = LOTRMod.mudGrass;
+			fillerBlock = LOTRMod.mud;
+		}
 		spawnableCreatureList.clear();
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(LOTREntityFlamingo.class, 10, 4, 4));
 		spawnableLOTRAmbientList.clear();
 		spawnableLOTRAmbientList.add(new BiomeGenBase.SpawnListEntry(LOTREntityBird.class, 10, 4, 4));
 		spawnableLOTRAmbientList.add(new BiomeGenBase.SpawnListEntry(LOTREntityButterfly.class, 15, 4, 4));
-		spawnableLOTRAmbientList.add(new BiomeGenBase.SpawnListEntry(LOTREntityMidges.class, 10, 4, 4));
-		spawnableMonsterList.add(new BiomeGenBase.SpawnListEntry(LOTREntityJungleScorpion.class, 30, 4, 4));
+		if (isMuddy()) {
+			spawnableLOTRAmbientList.add(new BiomeGenBase.SpawnListEntry(LOTREntityMidges.class, 10, 4, 4));
+		}
 		npcSpawnList.clear();
 		addBiomeVariant(LOTRBiomeVariant.FLOWERS);
 		addBiomeVariant(LOTRBiomeVariant.HILLS);
 		addBiomeVariant(LOTRBiomeVariant.MOUNTAIN);
 		addBiomeVariant(LOTRBiomeVariant.JUNGLE_DENSE);
-		decorator.addSoil(new WorldGenMinable(LOTRMod.mud, 32), 80.0f, 0, 256);
-		decorator.addSoil(new WorldGenMinable(LOTRMod.mud, 32), 80.0f, 0, 64);
+		if (isMuddy()) {
+			decorator.addSoil(new WorldGenMinable(LOTRMod.mud, 32), 80.0f, 0, 256);
+			decorator.addSoil(new WorldGenMinable(LOTRMod.mud, 32), 80.0f, 0, 64);
+		}
 		decorator.addOre(new WorldGenMinable(Blocks.gold_ore, 4), 3.0f, 0, 48);
 		decorator.addGem(new WorldGenMinable(LOTRMod.oreGem, 4, 8, Blocks.stone), 3.0f, 0, 48);
-		decorator.treesPerChunk = 40;
-		decorator.vinesPerChunk = 50;
+		decorator.treesPerChunk = 6;
+		decorator.vinesPerChunk = 0;
 		decorator.flowersPerChunk = 4;
 		decorator.doubleFlowersPerChunk = 4;
 		decorator.grassPerChunk = 15;
@@ -67,10 +71,6 @@ public class BiomeDarkLandJungle extends LOTRBiomeGenFarHarad {
 		biomeColors.setSky(11977908);
 		biomeColors.setFog(11254938);
 		biomeColors.setWater(4104311);
-		LOTRBiomeSpawnList.SpawnListContainer[] arrspawnListContainer = new LOTRBiomeSpawnList.SpawnListContainer[2];
-		arrspawnListContainer[0] = LOTRBiomeSpawnList.entry(LOTRSpawnList.ENTS, 10);
-		arrspawnListContainer[1] = LOTRBiomeSpawnList.entry(LOTRSpawnList.HUORNS, 20);
-		npcSpawnList.newFactionList(100).add(arrspawnListContainer);
 	}
 
 	@Override
@@ -120,10 +120,16 @@ public class BiomeDarkLandJungle extends LOTRBiomeGenFarHarad {
 		return false;
 	}
 
+	private boolean isMuddy() {
+		return true;
+	}
+
 	@Override
 	protected double modifyStoneNoiseForFiller(double stoneNoise) {
 		double stoneNoise1 = stoneNoise;
-		stoneNoise1 += 40.0;
+		if (isMuddy()) {
+			stoneNoise1 += 40.0;
+		}
 		return stoneNoise1;
 	}
 }

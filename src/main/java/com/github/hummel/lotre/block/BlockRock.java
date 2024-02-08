@@ -1,4 +1,4 @@
-package com.github.hummel.extended.block;
+package com.github.hummel.lotre.block;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;

@@ -1,7 +1,7 @@
-package com.github.hummel.extended.proxy;
+package com.github.hummel.lotre.proxy;
 
-import com.github.hummel.extended.init.MapLabels;
-import com.github.hummel.extended.listener.ReloadListener;
+import com.github.hummel.lotre.init.MapLabels;
+import com.github.hummel.lotre.listener.ReloadListener;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.IReloadableResourceManager;
 import net.minecraft.client.resources.IResourceManager;

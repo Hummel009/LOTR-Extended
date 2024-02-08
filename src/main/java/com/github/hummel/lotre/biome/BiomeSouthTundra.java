@@ -1,6 +1,6 @@
-package com.github.hummel.extended.biome;
+package com.github.hummel.lotre.biome;
 
-import com.github.hummel.extended.init.Waypoints;
+import com.github.hummel.lotre.init.Waypoints;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import lotr.common.LOTRMod;

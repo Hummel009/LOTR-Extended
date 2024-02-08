@@ -1,6 +1,6 @@
-package com.github.hummel.extended.init;
+package com.github.hummel.lotre.init;
 
-import com.github.hummel.extended.api.API;
+import com.github.hummel.lotre.api.API;
 import lotr.common.fac.LOTRFaction;
 import lotr.common.world.map.LOTRWaypoint;
 

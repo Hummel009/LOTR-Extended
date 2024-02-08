@@ -1,11 +1,11 @@
-package com.github.hummel.extended;
+package com.github.hummel.lotre;
 
-import com.github.hummel.extended.api.API;
-import com.github.hummel.extended.init.Biomes;
-import com.github.hummel.extended.init.Blocks;
-import com.github.hummel.extended.init.CreativeTabs;
-import com.github.hummel.extended.init.Waypoints;
-import com.github.hummel.extended.proxy.CommonProxy;
+import com.github.hummel.lotre.api.API;
+import com.github.hummel.lotre.init.Biomes;
+import com.github.hummel.lotre.init.Blocks;
+import com.github.hummel.lotre.init.CreativeTabs;
+import com.github.hummel.lotre.init.Waypoints;
+import com.github.hummel.lotre.proxy.CommonProxy;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
@@ -14,7 +14,7 @@ import net.minecraft.util.ResourceLocation;
 
 @Mod(modid = "lotre", dependencies = "required-after:lotr", useMetadata = true)
 public class Main {
-	@SidedProxy(clientSide = "com.github.hummel.extended.proxy.ClientProxy", serverSide = "com.github.hummel.extended.proxy.ServerProxy")
+	@SidedProxy(clientSide = "com.github.hummel.lotre.proxy.ClientProxy", serverSide = "com.github.hummel.lotre.proxy.ServerProxy")
 	private static CommonProxy proxy;
 
 	@Mod.EventHandler

@@ -1,6 +1,6 @@
-package com.github.hummel.extended.listener;
+package com.github.hummel.lotre.listener;
 
-import com.github.hummel.extended.api.API;
+import com.github.hummel.lotre.api.API;
 import net.minecraft.client.resources.IResourceManager;
 import net.minecraft.client.resources.IResourceManagerReloadListener;
 import net.minecraft.util.ResourceLocation;

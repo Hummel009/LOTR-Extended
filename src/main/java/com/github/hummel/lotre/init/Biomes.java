@@ -1,6 +1,6 @@
-package com.github.hummel.extended.init;
+package com.github.hummel.lotre.init;
 
-import com.github.hummel.extended.biome.*;
+import com.github.hummel.lotre.biome.*;
 import lotr.common.world.biome.*;
 
 @SuppressWarnings({"WeakerAccess", "PublicField"})

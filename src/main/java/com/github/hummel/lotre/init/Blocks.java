@@ -1,6 +1,6 @@
-package com.github.hummel.extended.init;
+package com.github.hummel.lotre.init;
 
-import com.github.hummel.extended.block.BlockRock;
+import com.github.hummel.lotre.block.BlockRock;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 

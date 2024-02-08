@@ -1,4 +1,4 @@
-package com.github.hummel.extended.biome;
+package com.github.hummel.lotre.biome;
 
 import lotr.common.world.biome.variant.LOTRBiomeVariant;
 import lotr.common.world.feature.LOTRTreeType;

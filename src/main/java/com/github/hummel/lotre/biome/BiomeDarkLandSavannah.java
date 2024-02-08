@@ -1,6 +1,6 @@
-package com.github.hummel.extended.biome;
+package com.github.hummel.lotre.biome;
 
-import com.github.hummel.extended.init.Waypoints;
+import com.github.hummel.lotre.init.Waypoints;
 import lotr.common.LOTRMod;
 import lotr.common.world.biome.LOTRBiomeGenFarHarad;
 import lotr.common.world.biome.LOTRMusicRegion;

@@ -1,4 +1,4 @@
-package com.github.hummel.extended.api;
+package com.github.hummel.lotre.api;
 
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.Loader;
