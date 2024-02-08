@@ -1,10 +1,16 @@
 package com.github.hummel.extended;
 
+import com.github.hummel.extended.api.API;
+import com.github.hummel.extended.init.Biomes;
+import com.github.hummel.extended.init.Blocks;
+import com.github.hummel.extended.init.CreativeTabs;
+import com.github.hummel.extended.init.Waypoints;
 import com.github.hummel.extended.proxy.CommonProxy;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import net.minecraft.util.ResourceLocation;
 
 @Mod(modid = "lotre", dependencies = "required-after:lotr", useMetadata = true)
 public class Main {
@@ -13,11 +19,17 @@ public class Main {
 
 	@Mod.EventHandler
 	public void onInit(FMLInitializationEvent event) {
+		Biomes.onInit();
+
+		API.setCommonMapImage(new ResourceLocation("lotre:map/map.png"));
+
 		proxy.onInit();
 	}
 
 	@Mod.EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
-		proxy.preInit();
+		Waypoints.preInit();
+		CreativeTabs.preInit();
+		Blocks.preInit();
 	}
 }

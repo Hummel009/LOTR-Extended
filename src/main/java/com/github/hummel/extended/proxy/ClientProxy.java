@@ -11,8 +11,6 @@ import net.minecraftforge.common.MinecraftForge;
 public class ClientProxy implements CommonProxy {
 	@Override
 	public void onInit() {
-		CommonProxy.super.onInit();
-
 		IResourceManagerReloadListener reloadListener = new ReloadListener.Map();
 		IResourceManager resourceManager = Minecraft.getMinecraft().getResourceManager();
 		reloadListener.onResourceManagerReload(resourceManager);
@@ -20,10 +18,5 @@ public class ClientProxy implements CommonProxy {
 		MinecraftForge.EVENT_BUS.register(reloadListener);
 
 		MapLabels.onInit();
-	}
-
-	@Override
-	public void preInit() {
-		CommonProxy.super.preInit();
 	}
 }
