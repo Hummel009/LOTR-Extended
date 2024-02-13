@@ -6,7 +6,6 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.IReloadableResourceManager;
 import net.minecraft.client.resources.IResourceManager;
 import net.minecraft.client.resources.IResourceManagerReloadListener;
-import net.minecraftforge.common.MinecraftForge;
 
 public class ClientProxy implements CommonProxy {
 	@Override
@@ -15,7 +14,6 @@ public class ClientProxy implements CommonProxy {
 		IResourceManager resourceManager = Minecraft.getMinecraft().getResourceManager();
 		reloadListener.onResourceManagerReload(resourceManager);
 		((IReloadableResourceManager) resourceManager).registerReloadListener(reloadListener);
-		MinecraftForge.EVENT_BUS.register(reloadListener);
 
 		MapLabels.onInit();
 	}
