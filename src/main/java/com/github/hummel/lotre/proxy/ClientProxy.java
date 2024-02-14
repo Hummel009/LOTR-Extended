@@ -10,7 +10,7 @@ import net.minecraft.client.resources.IResourceManagerReloadListener;
 public class ClientProxy implements CommonProxy {
 	@Override
 	public void onInit() {
-		IResourceManagerReloadListener reloadListener = new ReloadListener.Map();
+		IResourceManagerReloadListener reloadListener = new ReloadListener();
 		IResourceManager resourceManager = Minecraft.getMinecraft().getResourceManager();
 		reloadListener.onResourceManagerReload(resourceManager);
 		((IReloadableResourceManager) resourceManager).registerReloadListener(reloadListener);

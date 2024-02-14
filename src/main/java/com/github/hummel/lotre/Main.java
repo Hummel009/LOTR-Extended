@@ -12,9 +12,9 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import net.minecraft.util.ResourceLocation;
 
+@SuppressWarnings({"PublicField", "WeakerAccess"})
 @Mod(modid = "lotre", dependencies = "required-after:lotr", useMetadata = true)
 public class Main {
-	@SuppressWarnings({"PublicField", "WeakerAccess"})
 	@SidedProxy(clientSide = "com.github.hummel.lotre.proxy.ClientProxy", serverSide = "com.github.hummel.lotre.proxy.ServerProxy")
 	public static CommonProxy proxy;
 
