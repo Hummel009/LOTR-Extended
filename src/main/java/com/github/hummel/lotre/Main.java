@@ -14,8 +14,9 @@ import net.minecraft.util.ResourceLocation;
 
 @Mod(modid = "lotre", dependencies = "required-after:lotr", useMetadata = true)
 public class Main {
+	@SuppressWarnings({"PublicField", "WeakerAccess"})
 	@SidedProxy(clientSide = "com.github.hummel.lotre.proxy.ClientProxy", serverSide = "com.github.hummel.lotre.proxy.ServerProxy")
-	private static CommonProxy proxy;
+	public static CommonProxy proxy;
 
 	@Mod.EventHandler
 	public void onInit(FMLInitializationEvent event) {
