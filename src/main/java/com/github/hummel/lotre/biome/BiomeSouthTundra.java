@@ -32,8 +32,7 @@ import java.util.Random;
 public class BiomeSouthTundra extends LOTRBiome {
 	private static final NoiseGeneratorPerlin NOISE_DIRT = new NoiseGeneratorPerlin(new Random(47684796930956L), 1);
 	private static final NoiseGeneratorPerlin NOISE_STONE = new NoiseGeneratorPerlin(new Random(8894086030764L), 1);
-	private static final NoiseGeneratorPerlin NOISE_SNOW = new NoiseGeneratorPerlin(new Random(2490309256000602L), 1);
-	private final WorldGenerator boulderGen = new LOTRWorldGenBoulder(Blocks.stone, 0, 1, 3);
+	private static final WorldGenerator BOULDER_GEN = new LOTRWorldGenBoulder(Blocks.stone, 0, 1, 3);
 
 	public BiomeSouthTundra(int i, boolean major) {
 		super(i, major);
@@ -67,13 +66,6 @@ public class BiomeSouthTundra extends LOTRBiome {
 		registerTaigaFlowers();
 		decorator.addRandomStructure(new LOTRWorldGenRuinedHouse(false), 1500);
 		decorator.addRandomStructure(new LOTRWorldGenSmallStoneRuin(false), 500);
-	}
-
-	public static boolean isTundraSnowy(int i, int k) {
-		double d1 = NOISE_SNOW.func_151601_a(i * 0.002, k * 0.002);
-		double d2 = NOISE_SNOW.func_151601_a(i * 0.05, k * 0.05);
-		double d3 = NOISE_SNOW.func_151601_a(i * 0.3, k * 0.3);
-		return d1 + d2 * 0.3 + d3 * 0.3 > 0.8;
 	}
 
 	@Override
@@ -110,7 +102,7 @@ public class BiomeSouthTundra extends LOTRBiome {
 			for (int l = 0; l < boulders; ++l) {
 				int i1 = i + random.nextInt(16) + 8;
 				int k1 = k + random.nextInt(16) + 8;
-				boulderGen.generate(world, random, i1, world.getHeightValue(i1, k1), k1);
+				BOULDER_GEN.generate(world, random, i1, world.getHeightValue(i1, k1), k1);
 			}
 		}
 	}

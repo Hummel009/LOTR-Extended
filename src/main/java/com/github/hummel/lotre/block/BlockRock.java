@@ -8,6 +8,6 @@ public class BlockRock extends Block {
 		super(Material.rock);
 		setHardness(1.5f);
 		setResistance(10.0f);
-		setStepSound(Block.soundTypeStone);
+		setStepSound(soundTypeStone);
 	}
 }

@@ -8,7 +8,6 @@ import lotr.common.world.biome.variant.LOTRBiomeVariant;
 import lotr.common.world.feature.LOTRWorldGenBoulder;
 import lotr.common.world.feature.LOTRWorldGenYams;
 import lotr.common.world.map.LOTRWaypoint;
-import lotr.common.world.spawning.LOTRBiomeSpawnList;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenDoublePlant;
@@ -18,8 +17,7 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import java.util.Random;
 
 public class BiomeDarkLandSavannah extends LOTRBiomeGenFarHarad {
-	private final LOTRBiomeSpawnList populatedSpawnList = new LOTRBiomeSpawnList(this);
-	private final WorldGenerator boulderGen = new LOTRWorldGenBoulder(Blocks.stone, 0, 1, 3);
+	private static final WorldGenerator BOULDER_GEN = new LOTRWorldGenBoulder(Blocks.stone, 0, 1, 3);
 
 	public BiomeDarkLandSavannah(int i, boolean major) {
 		super(i, major);
@@ -56,7 +54,7 @@ public class BiomeDarkLandSavannah extends LOTRBiomeGenFarHarad {
 			for (int l = 0; l < boulders; ++l) {
 				int i1 = i + random.nextInt(16) + 8;
 				int k1 = k + random.nextInt(16) + 8;
-				boulderGen.generate(world, random, i1, world.getHeightValue(i1, k1), k1);
+				BOULDER_GEN.generate(world, random, i1, world.getHeightValue(i1, k1), k1);
 			}
 		}
 		if (random.nextInt(6) == 0) {

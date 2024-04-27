@@ -22,30 +22,24 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import java.util.Random;
 
 public class BiomeDarkLandJungleEdge extends LOTRBiomeGenFarHarad {
-	private final WorldGenerator obsidianGen = new LOTRWorldGenObsidianGravel();
+	private static final WorldGenerator OBSIDIAN_GEN = new LOTRWorldGenObsidianGravel();
 
 	public BiomeDarkLandJungleEdge(int i, boolean major) {
 		super(i, major);
-		if (isMuddy()) {
-			topBlock = LOTRMod.mudGrass;
-			fillerBlock = LOTRMod.mud;
-		}
+		topBlock = LOTRMod.mudGrass;
+		fillerBlock = LOTRMod.mud;
 		spawnableCreatureList.clear();
 		spawnableLOTRAmbientList.clear();
 		spawnableLOTRAmbientList.add(new BiomeGenBase.SpawnListEntry(LOTREntityBird.class, 10, 4, 4));
 		spawnableLOTRAmbientList.add(new BiomeGenBase.SpawnListEntry(LOTREntityButterfly.class, 15, 4, 4));
-		if (isMuddy()) {
-			spawnableLOTRAmbientList.add(new BiomeGenBase.SpawnListEntry(LOTREntityMidges.class, 10, 4, 4));
-		}
+		spawnableLOTRAmbientList.add(new SpawnListEntry(LOTREntityMidges.class, 10, 4, 4));
 		npcSpawnList.clear();
 		addBiomeVariant(LOTRBiomeVariant.FLOWERS);
 		addBiomeVariant(LOTRBiomeVariant.HILLS);
 		addBiomeVariant(LOTRBiomeVariant.MOUNTAIN);
 		addBiomeVariant(LOTRBiomeVariant.JUNGLE_DENSE);
-		if (isMuddy()) {
-			decorator.addSoil(new WorldGenMinable(LOTRMod.mud, 32), 80.0f, 0, 256);
-			decorator.addSoil(new WorldGenMinable(LOTRMod.mud, 32), 80.0f, 0, 64);
-		}
+		decorator.addSoil(new WorldGenMinable(LOTRMod.mud, 32), 80.0f, 0, 256);
+		decorator.addSoil(new WorldGenMinable(LOTRMod.mud, 32), 80.0f, 0, 64);
 		decorator.addOre(new WorldGenMinable(Blocks.gold_ore, 4), 3.0f, 0, 48);
 		decorator.addGem(new WorldGenMinable(LOTRMod.oreGem, 4, 8, Blocks.stone), 3.0f, 0, 48);
 		decorator.treesPerChunk = 6;
@@ -89,7 +83,7 @@ public class BiomeDarkLandJungleEdge extends LOTRBiomeGenFarHarad {
 			int i1 = i + random.nextInt(16) + 8;
 			int k1 = k + random.nextInt(16) + 8;
 			j1 = world.getTopSolidOrLiquidBlock(i1, k1);
-			obsidianGen.generate(world, random, i1, j1, k1);
+			OBSIDIAN_GEN.generate(world, random, i1, j1, k1);
 		}
 	}
 
@@ -116,20 +110,10 @@ public class BiomeDarkLandJungleEdge extends LOTRBiomeGenFarHarad {
 		return super.getRandomGrass(random);
 	}
 
-	public boolean hasJungleLakes() {
-		return false;
-	}
-
-	private boolean isMuddy() {
-		return true;
-	}
-
 	@Override
 	protected double modifyStoneNoiseForFiller(double stoneNoise) {
 		double stoneNoise1 = stoneNoise;
-		if (isMuddy()) {
-			stoneNoise1 += 40.0;
-		}
+		stoneNoise1 += 40.0;
 		return stoneNoise1;
 	}
 }

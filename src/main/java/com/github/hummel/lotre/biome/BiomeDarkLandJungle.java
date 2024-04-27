@@ -22,7 +22,7 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import java.util.Random;
 
 public class BiomeDarkLandJungle extends LOTRBiomeGenFarHarad {
-	private final WorldGenerator obsidianGen = new LOTRWorldGenObsidianGravel();
+	private static final WorldGenerator OBSIDIAN_GEN = new LOTRWorldGenObsidianGravel();
 
 	public BiomeDarkLandJungle(int i, boolean major) {
 		super(i, major);
@@ -89,7 +89,7 @@ public class BiomeDarkLandJungle extends LOTRBiomeGenFarHarad {
 			int i1 = i + random.nextInt(16) + 8;
 			int k1 = k + random.nextInt(16) + 8;
 			j1 = world.getTopSolidOrLiquidBlock(i1, k1);
-			obsidianGen.generate(world, random, i1, j1, k1);
+			OBSIDIAN_GEN.generate(world, random, i1, j1, k1);
 		}
 	}
 
@@ -114,10 +114,6 @@ public class BiomeDarkLandJungle extends LOTRBiomeGenFarHarad {
 			return new LOTRBiome.GrassBlockAndMeta(LOTRMod.tallGrass, 5);
 		}
 		return super.getRandomGrass(random);
-	}
-
-	public boolean hasJungleLakes() {
-		return false;
 	}
 
 	@Override

@@ -18,16 +18,15 @@ public class Biomes {
 	public static LOTRBiome darkLandCloudForest;
 	public static LOTRBiome darkLandSwamp;
 	public static LOTRBiome darkLandSavannah;
-	public static LOTRBiome darkLandKanukaForest;
 	public static LOTRBiome sunLandMountains;
 	public static LOTRBiome sunLandDesert;
-
-	private static int id = 255;
 
 	private Biomes() {
 	}
 
+	@SuppressWarnings({"ValueOfIncrementOrDecrementUsed", "UnusedAssignment"})
 	public static void onInit() {
+		int id = 255;
 		darkLandYellowMountains = new BiomeYellowMountains(id--, true).setTemperatureRainfall(0.8f, 0.8f).setMinMaxHeight(2.0f, 2.0f).setColor(0xEAC643).setBiomeName("yellowMountains");
 		darkLandTaiga = new BiomeSouthTaiga(id--, true).setTemperatureRainfall(0.4f, 0.4f).setMinMaxHeight(0.1f, 0.1f).setColor(0xA5C9AA).setBiomeName("southTaiga");
 		darkLandTundra = new BiomeSouthTundra(id--, true).setTemperatureRainfall(0.4f, 0.4f).setMinMaxHeight(0.1f, 0.1f).setColor(0xA5C681).setBiomeName("southTundra");

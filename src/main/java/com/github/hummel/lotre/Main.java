@@ -19,6 +19,7 @@ public class Main {
 	public static CommonProxy proxy;
 
 	@Mod.EventHandler
+	@SuppressWarnings("MethodMayBeStatic")
 	public void onInit(FMLInitializationEvent event) {
 		Biomes.onInit();
 
@@ -28,6 +29,7 @@ public class Main {
 	}
 
 	@Mod.EventHandler
+	@SuppressWarnings("MethodMayBeStatic")
 	public void preInit(FMLPreInitializationEvent event) {
 		Waypoints.preInit();
 		CreativeTabs.preInit();

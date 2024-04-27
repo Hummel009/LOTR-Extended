@@ -11,7 +11,6 @@ import lotr.client.gui.LOTRMapLabels;
 import lotr.common.LOTRCreativeTabs;
 import lotr.common.LOTRDimension;
 import lotr.common.fac.LOTRFaction;
-import lotr.common.world.biome.LOTRBiome;
 import lotr.common.world.genlayer.LOTRGenLayerWorld;
 import lotr.common.world.map.LOTRWaypoint;
 import net.minecraft.client.Minecraft;
@@ -29,13 +28,9 @@ public class API {
 	private API() {
 	}
 
-	public static LOTRMapLabels addMapLabel(String enumName, LOTRBiome biomeLabel, int x, int y, float scale, int angle, float zoomMin, float zoomMan) {
-		return addMapLabel(enumName, (Object) biomeLabel, x, y, scale, angle, zoomMin, zoomMan);
-	}
-
 	private static LOTRMapLabels addMapLabel(String enumName, Object label, int x, int y, float scale, int angle, float zoomMin, float zoomMan) {
 		Class<?>[] classArr = new Class[]{Object.class, Integer.TYPE, Integer.TYPE, Float.TYPE, Integer.TYPE, Float.TYPE, Float.TYPE};
-		Object[] args = new Object[]{label, x, y, scale, angle, zoomMin, zoomMan};
+		Object[] args = {label, x, y, scale, angle, zoomMin, zoomMan};
 		return EnumHelper.addEnum(LOTRMapLabels.class, enumName, classArr, args);
 	}
 
@@ -45,7 +40,7 @@ public class API {
 
 	public static LOTRWaypoint.Region addWaypointRegion(String name) {
 		Class<?>[] classArr = new Class[]{};
-		Object[] args = new Object[]{};
+		Object[] args = {};
 		return EnumHelper.addEnum(LOTRWaypoint.Region.class, name, classArr, args);
 	}
 
@@ -55,7 +50,7 @@ public class API {
 
 	private static LOTRWaypoint addWaypoint(String name, LOTRWaypoint.Region region, LOTRFaction faction, double x, double z, boolean hidden) {
 		Class<?>[] classArr = new Class[]{LOTRWaypoint.Region.class, LOTRFaction.class, Double.TYPE, Double.TYPE, Boolean.TYPE};
-		Object[] args = new Object[]{region, faction, x, z, hidden};
+		Object[] args = {region, faction, x, z, hidden};
 		return EnumHelper.addEnum(LOTRWaypoint.class, name, classArr, args);
 	}
 
