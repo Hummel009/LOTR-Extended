@@ -145,7 +145,7 @@ public class BiomeSouthTundra extends LOTRBiome {
 		noise /= 4.0f;
 		float[] rgb1 = new Color(color1).getColorComponents(null);
 		float[] rgb2 = new Color(color2).getColorComponents(null);
-		float[] rgbNoise = new float[rgb1.length];
+		float[] rgbNoise = new float[3];
 		for (int l = 0; l < rgbNoise.length; ++l) {
 			rgbNoise[l] = rgb1[l] + (rgb2[l] - rgb1[l]) * noise;
 		}
